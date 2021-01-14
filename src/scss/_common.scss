@@ -99,10 +99,10 @@ select {
 			font-size: 14px;
 			&:before {
 				content:"";
-				@include display($type: inline-block, $w: 16px, $h: 16px);
+				@include display($type: inline-block, $a: 20px);
 				margin-right: 6px;
 				background: url($path+'images/icon_chk.png') no-repeat;
-				vertical-align: middle;
+				vertical-align: -4px;
 			}
 		}
 		&:disabled + label:before,
@@ -112,13 +112,11 @@ select {
 	}
 	input[type="radio"] {
 		@extend input[type="checkbox"];
-		& + label:before,
-		& + span:before {
+		& + label:before, & + span:before {
 			background-image: url($path+'images/icon_radio.png');
 		}
 	}
-	&.nonTxt input + label,
-	&.nonTxt input + span {
+	&.nonTxt input + label, &.nonTxt input + span {
 		font-size: 0;
 		&:before {margin: 0;}
 	}
@@ -186,8 +184,25 @@ select {
 		font-size: 16px;
 	}
 	.util {
+		height: 100%;
 		margin-left: auto;
 		justify-self: flex-end;
+		.user {
+			display: inline-block;
+			margin-right: 5px;
+			color: #606870;
+			font-size: 16px;
+			vertical-align: middle;
+		}
+		.btnSet {
+			width: 70px; height: 100%;
+			margin-left: 15px;
+			border: solid #d9dce8;
+			border-width: 0 1px;
+			font-size: 0;
+			background: url($path+'images/icon_set.png') no-repeat 50% 50%;
+			vertical-align: middle;
+		}
 	}
 }
 

@@ -275,11 +275,11 @@ select:disabled {
 .inputChk input[type="checkbox"] + span:before, .inputChk input[type="radio"] + span:before, .inputChk input[type="checkbox"] + label:before, .inputChk input[type="radio"] + label:before {
 	content: "";
 	display: inline-block;
-	width: 16px;
-	height: 16px;
+	width: 20px;
+	height: 20px;
 	margin-right: 6px;
 	background: url("../images/icon_chk.png") no-repeat;
-	vertical-align: middle;
+	vertical-align: -4px;
 }
 .inputChk input[type="checkbox"]:disabled + label:before, .inputChk input:disabled[type="radio"] + label:before,
 .inputChk input[type="checkbox"]:disabled + span:before,
@@ -291,16 +291,13 @@ select:disabled {
 .inputChk input:checked[type="radio"] + span:before {
 	background-position: 100% 0;
 }
-.inputChk input[type="radio"] + label:before,
-.inputChk input[type="radio"] + span:before {
+.inputChk input[type="radio"] + label:before, .inputChk input[type="radio"] + span:before {
 	background-image: url("../images/icon_radio.png");
 }
-.inputChk.nonTxt input + label,
-.inputChk.nonTxt input + span {
+.inputChk.nonTxt input + label, .inputChk.nonTxt input + span {
 	font-size: 0;
 }
-.inputChk.nonTxt input + label:before,
-.inputChk.nonTxt input + span:before {
+.inputChk.nonTxt input + label:before, .inputChk.nonTxt input + span:before {
 	margin: 0;
 }
 [class*="btnType"] {
@@ -368,8 +365,26 @@ select:disabled {
 	font-size: 16px;
 }
 .header .util {
+	height: 100%;
 	margin-left: auto;
 	justify-self: flex-end;
+}
+.header .util .user {
+	display: inline-block;
+	margin-right: 5px;
+	color: #606870;
+	font-size: 16px;
+	vertical-align: middle;
+}
+.header .util .btnSet {
+	width: 70px;
+	height: 100%;
+	margin-left: 15px;
+	border: solid #d9dce8;
+	border-width: 0 1px;
+	font-size: 0;
+	background: url("../images/icon_set.png") no-repeat 50% 50%;
+	vertical-align: middle;
 }
 .menuWrap {
 	position: fixed;
