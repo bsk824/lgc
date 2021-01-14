@@ -13,15 +13,16 @@
 		{{ include("inc/header.html") | tabIndent(2) }}
 		<!-- //header -->
 
+		<!-- nav -->
+		{{ include("inc/nav.html") | tabIndent(2) }}
+		<!-- //nav -->
+
 		<div class="container">
 			{% filter tabIndent(3) %}
 			{% block content %}{% endblock %}
 			{%- endfilter %}
 		</div>
 
-		<!-- footer -->
-		{{ include("inc/footer.html") | tabIndent(2) }}
-		<!-- //footer -->
 	</div>
 </body>
 </html>
