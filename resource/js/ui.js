@@ -104,7 +104,34 @@ var getUrlParams = function getUrlParams() {
   return params;
 };
 
+var tab = {
+  init: function init() {
+    var tabList = document.querySelectorAll('.tabList');
+    [].forEach.call(tabList, function (_this) {
+      var tabLink = _this.querySelectorAll('a');
+
+      tab.addEvent(tabLink);
+    });
+  },
+  addEvent: function addEvent(obj) {
+    [].forEach.call(obj, function (_this) {
+      _this.addEventListener('click', function (e) {
+        var btn = e.target;
+        tab.active(obj, btn);
+      });
+    });
+  },
+  active: function active(list, btn) {
+    if (!btn.parentNode.classList.contains('active')) {
+      [].forEach.call(list, function (_this) {
+        _this.parentNode.classList.remove('active');
+      });
+      btn.parentNode.classList.add('active');
+    }
+  }
+};
 window.addEventListener('DOMContentLoaded', function () {
   device.init();
+  tab.init();
 });
 //# sourceMappingURL=ui.js.map

@@ -6,7 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=2.0, minimum-scale=1.0, user-scalable=yes, target-densitydpi=medium-dpi">
 	<title>title</title>
 	<link rel="stylesheet" href="/resource/css/style.css">
+	<link rel="stylesheet" href="/resource/css/jquery-ui.css">
+	<link rel="stylesheet" href="/resource/css/ui.jqgrid.css">
 	<script src="/resource/js/ui.js"></script>
+	<script src="/resource/js/jquery-1.7.2.min.js"></script>
+	<script src="/resource/js/grid.locale-kr.js"></script>
+	<script src="/resource/js/jquery.jqGrid.min.js"></script>
 </head>
 
 <body>
@@ -26,16 +31,16 @@
 		<!-- nav -->
 		<nav class="menuWrap">
 			<h2 class="navTitle">모니터링</h2>
-			<div>
+			<div class="navList">
 				<ul>
-					<li><a href="#">통합모니터링</a></li>
+					<li class="active"><a href="#">통합모니터링</a></li>
 					<li><a href="#">알람이력조회</a></li>
 					<li><a href="#">센싱정보이력조회</a></li>
 				</ul>
 			</div>
 
 			<h2 class="navTitle">관리</h2>
-			<div>
+			<div class="navList">
 				<ul>
 					<li><a href="#">알람수신인관리</a></li>
 					<li><a href="#">시설장비목록조회</a></li>
@@ -52,6 +57,16 @@
 			<p style="font-size: 14px; font-weight: 700;">가나다라마바사아자차카타파하</p>
 			<p style="font-size: 14px; font-weight: 800;">가나다라마바사아자차카타파하</p>
 
+			<div class="tab">
+				<ul class="tabList">
+					<li><a href="#">탭1</a></li>
+					<li class="active"><a href="#">탭2</a></li>
+					<li><a href="#">탭3</a></li>
+					<li><a href="#">탭4</a></li>
+					<li><a href="#">탭5</a></li>
+				</ul>
+			</div>
+
 			<button type="button" class="btnType1"><span>버튼</span></button>
 			<a href="#" class="btnType1">버튼</a>
 			<button type="button" class="btnType2"><span>버튼</span></button>
@@ -63,6 +78,51 @@
 			<button type="button" class="btnType5"><span>버튼</span></button>
 			<a href="#" class="btnType5">버튼</a>
 			<label class="inputChk"><input type="radio"> <span>라디오</span></label>
+
+			<script>
+			$(document).ready(function () {
+				$("#mntrGrid").jqGrid({
+			        mtype: "GET",
+			        datatype: "local",
+			        colNames:['메인모듈명','시설명','상태','누설','누설위치','파손','통신','베터리','최종갱신일시'],
+			        colModel: [
+			            { name: 'EQMT_NM', 	 	index: 'eqmtNm',     width: 200, key: true },
+			            { name: 'FCLT_NM',   	index: 'fcltNm',    width: 150 },
+			            { name: 'EQMT_STAT',   	index: 'eqmtStat', 	width: 80 },
+			            { name: 'LEAK_YN',   	index: 'leakYn', 	width: 80 },
+			            { name: 'LEAK_POS',   	index: 'leakPos', 	width: 80 },
+			            { name: 'FLG_YN',   	index: 'flgYn', 	width: 80 },
+			            { name: 'CMM_FAIL_YN',  index: 'cmmFailYn', 	width: 80 },
+			            { name: 'BATR',   		index: 'batr', 	width: 80 },
+			            { name: 'LAST_UPD_DTM', index: 'lastUpdDtm', 	width: 150 }
+			        ],
+			        viewrecords: true,
+			        height: 500,
+			        rowNum: 10,
+			        rowList:[10,20,30],
+			        pager: "#mntrGridPager"
+			    });
+				
+				$.ajax({
+			        url: "/resource/js/mntrList.json",
+			        data: "",
+			        success: function(data) {
+			       		var jsonData = data;
+			       		var mntrList = jsonData.mntrList;
+			       		for(var i=0; i<mntrList.length ; i++ ){
+			       			$('#mntrGrid').jqGrid('addRowData', i, mntrList[i]);
+			            }
+			       		$("#mntrGrid").trigger('reloadGrid');
+			        },
+			        error: function(){
+						console.log("에러 : ");
+					}
+			    });
+			});
+			</script>
+
+			<table id="mntrGrid"></table>
+			<div id="mntrGridPager"></div>
 		</div>
 
 	</div>

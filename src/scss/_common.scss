@@ -165,7 +165,7 @@ select {
 }
 
 .header {
-	@include pos($p: fixed, $t: 0, $r: 0, $l: 0);
+	@include pos($p: fixed, $t: 0, $r: 0, $l: 0, $z: 100);
 	display: flex;
 	align-items: center;
 	height: 84px;
@@ -213,9 +213,67 @@ select {
 	background: #fff;
 	box-sizing: border-box;
 	border-right: 1px solid #d9dce8;
+	.navTitle {
+		margin-left: 13px;
+		padding-left: 20px;
+		background: url($path+'images/icon_depth.png') no-repeat 0 4px;
+		font-size: 16px;
+		color: #29292d;
+		~ .navTitle {margin-top: 70px;}
+	}
+	.navList {
+		margin-top: 15px;
+		li {
+			padding: 10px 0 8px 30px;
+			border-radius: 8px 0 0 8px;
+			color: #6c8296;
+			font-size: 15px;
+			&.active {
+				background: #3393ec;
+				color: #fff;
+			}
+		}
+		a {
+			position: relative;
+			display: block;
+			padding-left: 10px;
+			&:before {
+				content: "-";
+				@include pos($p: absolute, $t: 0, $l: 0);
+			}
+		}
+	}
 }
 
 .container {
 	margin: 84px 0 0 220px;
 	padding: 12px;
+}
+
+.tabList {
+	display: flex;
+	background: #f6fafb;
+	border: 1px solid #d9dce8;
+	li {
+		position: relative;
+		flex: 1;
+		~ li {border-left: 1px solid #d9dce8;}
+		a {
+			position: relative;
+			display: block;
+			padding: 12px 0;
+			text-align: center;
+			font-size: 16px;
+			color: #313447;
+			z-index: 2;
+		}
+		&.active {
+			a {color: #1483ea;}
+			&:after {
+				content: "";
+				@include pos($p: absolute, $t: 0, $r: 0, $b: -1px, $l: 0);
+				background: #fff;
+			}
+		}
+	}
 }

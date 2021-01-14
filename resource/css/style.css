@@ -343,6 +343,7 @@ select:disabled {
 }
 .header {
 	position: fixed;
+	z-index: 100;
 	top: 0;
 	right: 0;
 	left: 0;
@@ -397,9 +398,76 @@ select:disabled {
 	box-sizing: border-box;
 	border-right: 1px solid #d9dce8;
 }
+.menuWrap .navTitle {
+	margin-left: 13px;
+	padding-left: 20px;
+	background: url("../images/icon_depth.png") no-repeat 0 4px;
+	font-size: 16px;
+	color: #29292d;
+}
+.menuWrap .navTitle ~ .navTitle {
+	margin-top: 70px;
+}
+.menuWrap .navList {
+	margin-top: 15px;
+}
+.menuWrap .navList li {
+	padding: 10px 0 8px 30px;
+	border-radius: 8px 0 0 8px;
+	color: #6c8296;
+	font-size: 15px;
+}
+.menuWrap .navList li.active {
+	background: #3393ec;
+	color: #fff;
+}
+.menuWrap .navList a {
+	position: relative;
+	display: block;
+	padding-left: 10px;
+}
+.menuWrap .navList a:before {
+	content: "-";
+	position: absolute;
+	top: 0;
+	left: 0;
+}
 .container {
 	margin: 84px 0 0 220px;
 	padding: 12px;
+}
+.tabList {
+	display: flex;
+	background: #f6fafb;
+	border: 1px solid #d9dce8;
+}
+.tabList li {
+	position: relative;
+	flex: 1;
+}
+.tabList li ~ li {
+	border-left: 1px solid #d9dce8;
+}
+.tabList li a {
+	position: relative;
+	display: block;
+	padding: 12px 0;
+	text-align: center;
+	font-size: 16px;
+	color: #313447;
+	z-index: 2;
+}
+.tabList li.active a {
+	color: #1483ea;
+}
+.tabList li.active:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: -1px;
+	left: 0;
+	background: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */

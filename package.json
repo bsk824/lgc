@@ -19,7 +19,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
-    "browser-sync": "^2.26.12",
+    "browser-sync": "^2.26.13",
     "del-gulpsass-blank-lines": "^0.1.3",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",

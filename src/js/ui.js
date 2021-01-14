@@ -88,6 +88,33 @@ const getUrlParams = () => {
 	return params;
 }
 
+const tab = {
+	init: () => {
+		let tabList = document.querySelectorAll('.tabList');
+		[].forEach.call(tabList, _this => {
+			let tabLink = _this.querySelectorAll('a');
+			tab.addEvent(tabLink);
+		});
+	},
+	addEvent: (obj) => {
+		[].forEach.call(obj, _this => {
+			_this.addEventListener('click', e => {
+				let btn = e.target;
+				tab.active(obj, btn);
+			});
+		});
+	},
+	active: (list, btn) => {
+		if(!btn.parentNode.classList.contains('active')) {
+			[].forEach.call(list, _this => {
+				_this.parentNode.classList.remove('active');
+			});
+			btn.parentNode.classList.add('active');
+		}
+	}
+}
+
 window.addEventListener('DOMContentLoaded', () => {
 	device.init();
+	tab.init();
 });
