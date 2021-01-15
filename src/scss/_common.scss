@@ -2,9 +2,9 @@ select {
 	position: relative;
 	height: 30px;
 	padding: 0 30px 0 13px;
-	background: #fff url('../images/icon_select.png') no-repeat right 11px top 50%;
-	color: #000;
-	border: 1px solid #acacac;
+	background: #eef2f6 url('../images/icon_select.png') no-repeat right 11px top 50%;
+	color: #41424a;
+	border: 1px solid #eef2f6;
 	font-size: 14px;
 	text-align: left;
 	vertical-align: top;
@@ -87,7 +87,7 @@ select {
 	vertical-align: middle;
 	font-size: 0;
 	line-height: 1;
-	input:focus + span {outline: 1px solid;}
+	input:focus + span {outline: 1px dashed;}
 	input[type="checkbox"] {
 		position: absolute;
 		opacity: 0;
@@ -207,7 +207,7 @@ select {
 }
 
 .menuWrap {
-	@include pos($p: fixed, $t: 85px, $b: 0, $l: 0);
+	@include pos($p: fixed, $t: 85px, $b: 0, $l: 0, $z: 100);
 	width: 220px;
 	padding: 50px 0 50px 20px;
 	background: #fff;

@@ -67,17 +67,25 @@
 				</ul>
 			</div>
 
-			<button type="button" class="btnType1"><span>버튼</span></button>
-			<a href="#" class="btnType1">버튼</a>
-			<button type="button" class="btnType2"><span>버튼</span></button>
-			<a href="#" class="btnType2">버튼</a>
-			<button type="button" class="btnType3"><span>버튼</span></button>
-			<a href="#" class="btnType3">버튼</a>
-			<button type="button" class="btnType4"><span>버튼</span></button>
-			<a href="#" class="btnType4">버튼</a>
-			<button type="button" class="btnType5"><span>버튼</span></button>
-			<a href="#" class="btnType5">버튼</a>
-			<label class="inputChk"><input type="radio"> <span>라디오</span></label>
+			<div>
+				<button type="button" class="btnType1"><span>버튼</span></button>
+				<a href="#" class="btnType1">버튼</a>
+				<button type="button" class="btnType2"><span>버튼</span></button>
+				<a href="#" class="btnType2">버튼</a>
+				<button type="button" class="btnType3"><span>버튼</span></button>
+				<a href="#" class="btnType3">버튼</a>
+				<button type="button" class="btnType4"><span>버튼</span></button>
+				<a href="#" class="btnType4">버튼</a>
+				<button type="button" class="btnType5"><span>버튼</span></button>
+				<a href="#" class="btnType5">버튼</a>
+			</div>
+			<div>
+				<label class="inputChk"><input type="radio"> <span>라디오</span></label>
+				<select name="" id="">
+					<option value="">선택</option>
+					<option value="">옵션</option>
+				</select>
+			</div>
 
 			<script>
 			$(document).ready(function () {
@@ -86,18 +94,19 @@
 			        datatype: "local",
 			        colNames:['메인모듈명','시설명','상태','누설','누설위치','파손','통신','베터리','최종갱신일시'],
 			        colModel: [
-			            { name: 'EQMT_NM', 	 	index: 'eqmtNm',     width: 200, key: true },
-			            { name: 'FCLT_NM',   	index: 'fcltNm',    width: 150 },
-			            { name: 'EQMT_STAT',   	index: 'eqmtStat', 	width: 80 },
-			            { name: 'LEAK_YN',   	index: 'leakYn', 	width: 80 },
-			            { name: 'LEAK_POS',   	index: 'leakPos', 	width: 80 },
-			            { name: 'FLG_YN',   	index: 'flgYn', 	width: 80 },
-			            { name: 'CMM_FAIL_YN',  index: 'cmmFailYn', 	width: 80 },
-			            { name: 'BATR',   		index: 'batr', 	width: 80 },
-			            { name: 'LAST_UPD_DTM', index: 'lastUpdDtm', 	width: 150 }
+			            { name: 'EQMT_NM', 	 	index: 'eqmtNm',  key: true },
+			            { name: 'FCLT_NM',   	index: 'fcltNm',   },
+			            { name: 'EQMT_STAT',   	index: 'eqmtStat', 	},
+			            { name: 'LEAK_YN',   	index: 'leakYn', 	},
+			            { name: 'LEAK_POS',   	index: 'leakPos', 	},
+			            { name: 'FLG_YN',   	index: 'flgYn', 	},
+			            { name: 'CMM_FAIL_YN',  index: 'cmmFailYn',  },
+			            { name: 'BATR',   		index: 'batr', 	 },
+			            { name: 'LAST_UPD_DTM', index: 'lastUpdDtm',  }
 			        ],
 			        viewrecords: true,
-			        height: 500,
+					autowidth:true,
+			        height: 'auto',
 			        rowNum: 10,
 			        rowList:[10,20,30],
 			        pager: "#mntrGridPager"

@@ -148,9 +148,9 @@ select {
 	position: relative;
 	height: 30px;
 	padding: 0 30px 0 13px;
-	background: #fff url("../images/icon_select.png") no-repeat right 11px top 50%;
-	color: #000;
-	border: 1px solid #acacac;
+	background: #eef2f6 url("../images/icon_select.png") no-repeat right 11px top 50%;
+	color: #41424a;
+	border: 1px solid #eef2f6;
 	font-size: 14px;
 	text-align: left;
 	vertical-align: top;
@@ -259,7 +259,7 @@ select:disabled {
 	line-height: 1;
 }
 .inputChk input:focus + span {
-	outline: 1px solid;
+	outline: 1px dashed;
 }
 .inputChk input[type="checkbox"], .inputChk input[type="radio"] {
 	position: absolute;
@@ -389,6 +389,7 @@ select:disabled {
 }
 .menuWrap {
 	position: fixed;
+	z-index: 100;
 	top: 85px;
 	bottom: 0;
 	left: 0;
