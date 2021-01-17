@@ -48,6 +48,7 @@
 	src: url(../font/ng/NanumGothicEB.eot?#iefix) format("embedded-opentype"), url(../font/ng/NanumGothicEB.woff) format("woff"), url(../font/ng/NanumGothicEB.woff2) format("woff2");
 }
 body {
+	min-width: 1280px;
 	-webkit-text-size-adjust: none;
 	margin: 0;
 	font: 14px/1.5 "noto", "Malgun Gothic", "맑은 고딕", "Helvetica Neue", "Apple SD Gothic Neo", sans-serif;
@@ -144,9 +145,29 @@ hr {
 	width: 100%;
 	flex-shrink: 0;
 }
+.ui-jqgrid .pager {
+	background: none !important;
+}
+.ui-jqgrid .pager #mntrGridPager_center > table {
+	float: right;
+}
+.ui-jqgrid .pager #mntrGridPager_right {
+	display: none;
+}
+.ui-jqgrid .pager .ui-pg-table td {
+	font-weight: 700;
+}
+.ui-jqgrid .pager .ui-pg-selbox {
+	height: 30px;
+	margin-left: 30px;
+	padding: 0 55px 0 20px;
+	background: url("../images/icon_select2.png") no-repeat 100% 50%;
+	border: 1px solid #8399aa;
+	border-right: 0;
+}
 select {
 	position: relative;
-	height: 30px;
+	height: 32px;
 	padding: 0 30px 0 13px;
 	background: #eef2f6 url("../images/icon_select.png") no-repeat right 11px top 50%;
 	color: #41424a;
@@ -201,18 +222,11 @@ select:disabled {
 	width: 100%;
 }
 .inputTxt {
-	height: 30px;
-	padding: 8px 12px;
+	height: 28px;
+	padding: 8px 15px;
 	background: #fff;
-	border: 1px solid #acacac;
+	border: 1px solid #c3c6da;
 	line-height: 1;
-}
-.inputTxt + .error {
-	display: none;
-	margin: 8px 0 0;
-	font-size: 12px;
-	color: #f00;
-	text-align: right;
 }
 .inputTxt:focus {
 	color: #000;
@@ -228,17 +242,6 @@ select:disabled {
 	background: #e9e9e9;
 	border-color: #d3d4d6;
 }
-.inputTxt[data-valid="true"] {
-	background: #fff url("../images/icon_success.png") no-repeat right 11px top 50%;
-	border-color: #22a2d1;
-}
-.inputTxt[data-valid="false"] {
-	background: #fff url("../images/icon_error.png") no-repeat right 11px top 50%;
-	border-color: #f00;
-}
-.inputTxt[data-valid="false"] + .error {
-	display: block;
-}
 .inputTxt::-webkit-input-placeholder {
 	color: #999;
 }
@@ -251,6 +254,10 @@ select:disabled {
 }
 .inputTxt::-ms-clear {
 	display: none;
+}
+.inputTxt.typeCal {
+	padding-right: 30px;
+	background: #fff url("../images/icon_cal.png") no-repeat right 5px top 50%;
 }
 .inputChk {
 	display: inline-block;
@@ -275,10 +282,11 @@ select:disabled {
 .inputChk input[type="checkbox"] + span:before, .inputChk input[type="radio"] + span:before, .inputChk input[type="checkbox"] + label:before, .inputChk input[type="radio"] + label:before {
 	content: "";
 	display: inline-block;
-	width: 20px;
-	height: 20px;
+	width: 16px;
+	height: 16px;
 	margin-right: 6px;
-	background: url("../images/icon_chk.png") no-repeat;
+	border: 1px solid #75788a;
+	background: #fff url("../images/icon_chk.png") no-repeat -900% 50%;
 	vertical-align: -4px;
 }
 .inputChk input[type="checkbox"]:disabled + label:before, .inputChk input:disabled[type="radio"] + label:before,
@@ -289,10 +297,18 @@ select:disabled {
 .inputChk input[type="checkbox"]:checked + label:before, .inputChk input:checked[type="radio"] + label:before,
 .inputChk input[type="checkbox"]:checked + span:before,
 .inputChk input:checked[type="radio"] + span:before {
-	background-position: 100% 0;
+	background-position: 50% 50%;
 }
-.inputChk input[type="radio"] + label:before, .inputChk input[type="radio"] + span:before {
-	background-image: url("../images/icon_radio.png");
+.inputChk input[type="radio"] + label:before,
+.inputChk input[type="radio"] + span:before {
+	width: 20px;
+	height: 20px;
+	border: 0;
+	background: url("../images/icon_radio.png") no-repeat;
+}
+.inputChk input[type="radio"]:checked + label:before,
+.inputChk input[type="radio"]:checked + span:before {
+	background-position: 100% 0;
 }
 .inputChk.nonTxt input + label, .inputChk.nonTxt input + span {
 	font-size: 0;
@@ -318,9 +334,9 @@ select:disabled {
 	color: #fff;
 }
 .btnType2 {
-	background: #f3f9f9;
+	background: #3c3c46;
 	border: 1px solid #617281;
-	color: #333647;
+	color: #fff;
 }
 .btnType3 {
 	background: #5a5c67;
@@ -340,6 +356,109 @@ select:disabled {
 	color: #6a6d7f;
 	font-size: 13px;
 	font-weight: bold;
+}
+.subTitle {
+	position: relative;
+	margin: 8px 0 12px 17px;
+	padding-left: 13px;
+	font-size: 18px;
+	color: #303132;
+	line-height: 1.2;
+}
+.subTitle:after {
+	content: "";
+	position: absolute;
+	top: 8px;
+	left: 0;
+	width: 4px;
+	height: 4px;
+	background: #313447;
+}
+.box {
+	padding: 20px;
+	background: #fff;
+	border: 1px solid #d9dce8;
+}
+.box ~ .box, .box ~ .tab {
+	margin-top: 12px;
+}
+.tab .box {
+	margin-top: -1px;
+}
+.tab ~ .box {
+	margin-top: 12px;
+}
+.tabList {
+	display: flex;
+	background: #f6fafb;
+	border: 1px solid #d9dce8;
+}
+.tabList li {
+	position: relative;
+	flex: 1;
+}
+.tabList li ~ li {
+	border-left: 1px solid #d9dce8;
+}
+.tabList li a {
+	position: relative;
+	display: block;
+	padding: 12px 0;
+	text-align: center;
+	font-size: 16px;
+	color: #313447;
+	z-index: 2;
+}
+.tabList li.active a {
+	color: #1483ea;
+}
+.tabList li.active:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: -1px;
+	left: 0;
+	background: #fff;
+}
+.filter {
+	display: flex;
+	padding: 13px 0;
+	border: 1px solid #d9dce8;
+}
+.filter .cell {
+	display: flex;
+	flex: 1;
+	align-items: center;
+}
+.filter .cell .th {
+	padding: 0 12px 0 30px;
+}
+.filter .cell .td {
+	flex: 1;
+	display: block;
+	width: 100%;
+}
+.filter .period {
+	display: flex;
+	align-items: center;
+}
+.filter .period > div {
+	flex: 1;
+}
+.filter .period .inputTxt {
+	width: 100%;
+}
+.filter .period .hyphen {
+	flex: none;
+	width: 10px;
+	height: 1px;
+	margin: 0 4px;
+	font-size: 0;
+	background: #545455;
+}
+.filter .btn {
+	padding: 0 13px;
 }
 .header {
 	position: fixed;
@@ -436,39 +555,6 @@ select:disabled {
 .container {
 	margin: 84px 0 0 220px;
 	padding: 12px;
-}
-.tabList {
-	display: flex;
-	background: #f6fafb;
-	border: 1px solid #d9dce8;
-}
-.tabList li {
-	position: relative;
-	flex: 1;
-}
-.tabList li ~ li {
-	border-left: 1px solid #d9dce8;
-}
-.tabList li a {
-	position: relative;
-	display: block;
-	padding: 12px 0;
-	text-align: center;
-	font-size: 16px;
-	color: #313447;
-	z-index: 2;
-}
-.tabList li.active a {
-	color: #1483ea;
-}
-.tabList li.active:after {
-	content: "";
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: -1px;
-	left: 0;
-	background: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */

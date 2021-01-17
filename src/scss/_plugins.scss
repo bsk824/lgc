@@ -9,3 +9,21 @@
 		flex-shrink: 0;
 	}
 }
+
+.ui-jqgrid .pager {
+	background: none !important;
+	
+	#mntrGridPager_center {
+		> table {float:right;}
+	}
+	#mntrGridPager_right {display: none;}
+	.ui-pg-table td {font-weight: 700;}
+	.ui-pg-selbox {
+		height: 30px;
+		margin-left: 30px;
+		padding: 0 55px 0 20px;
+		background: url('../images/icon_select2.png') no-repeat 100% 50%;
+		border: 1px solid #8399aa;
+		border-right: 0;
+	}
+}

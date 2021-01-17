@@ -2,11 +2,99 @@
 {% extends 'inc/layout.html' %}
 {% block content -%}
 
-<p style="font-size: 14px; font-weight: 300;">가나다라마바사아자차카타파하</p>
-<p style="font-size: 14px; font-weight: 400;">가나다라마바사아자차카타파하</p>
-<p style="font-size: 14px; font-weight: 700;">가나다라마바사아자차카타파하</p>
-<p style="font-size: 14px; font-weight: 800;">가나다라마바사아자차카타파하</p>
+<section class="box">
+	<h3 class="subTitle">서브타이틀</h3>
+	<p style="font-size: 14px; font-weight: 300;">가나다라마바사아자차카타파하</p>
+	<p style="font-size: 14px; font-weight: 400;">가나다라마바사아자차카타파하</p>
+	<p style="font-size: 14px; font-weight: 700;">가나다라마바사아자차카타파하</p>
+	<p style="font-size: 14px; font-weight: 800;">가나다라마바사아자차카타파하</p>
+	<div>
+		<button type="button" class="btnType1"><span>버튼</span></button>
+		<a href="#" class="btnType1">버튼</a>
+		<button type="button" class="btnType2"><span>버튼</span></button>
+		<a href="#" class="btnType2">버튼</a>
+		<button type="button" class="btnType3"><span>버튼</span></button>
+		<a href="#" class="btnType3">버튼</a>
+		<button type="button" class="btnType4"><span>버튼</span></button>
+		<a href="#" class="btnType4">버튼</a>
+		<button type="button" class="btnType5"><span>버튼</span></button>
+		<a href="#" class="btnType5">버튼</a>
+	</div>
+	<div>
+		<label class="inputChk"><input type="radio"> <span>라디오</span></label>
+		<label class="inputChk"><input type="checkbox"> <span>체크박스</span></label>
+		<input type="text" class="inputTxt typeCal">
+		<select name="" id="">
+			<option value="">선택</option>
+			<option value="">옵션</option>
+		</select>
+	</div>
+</section>
+<section class="box">
 
+	<div class="filter">
+		<span class="cell">
+			<strong class="th">장비명</strong>
+			<span class="td">
+				<select style="width: 100%;">
+					<option>ALL</option>
+				</select>
+			</span>
+		</span>
+		<span class="cell">
+			<strong class="th">배관</strong>
+			<span class="td">
+				<select style="width: 100%;">
+					<option>ALL</option>
+				</select>
+			</span>
+		</span>
+		<span class="cell">
+			<strong class="th">시설</strong>
+			<span class="td">
+				<select style="width: 100%;">
+					<option>ALL</option>
+				</select>
+			</span>
+		</span>
+		<span class="btn">
+			<button type="button" class="btnType3"><span>검색</span></button>
+		</span>
+	</div>
+
+	<div class="filter">
+		<span class="cell">
+			<strong class="th">장비도입구</strong>
+			<span class="td">
+				<select style="width: 100%;">
+					<option>2021 YUMIN Leak Sensor</option>
+				</select>
+			</span>
+		</span>
+		<span class="cell">
+			<strong class="th">조회기간</strong>
+			<span class="td">
+				<div class="period">
+					<div><input type="text" class="inputTxt typeCal" value="2021-03-05"></div>
+					<div class="hyphen">-</div>
+					<div><input type="text" class="inputTxt typeCal" value="2021-03-05"></div>
+				</div>
+			</span>
+		</span>
+		<span class="cell">
+			<strong class="th">배관</strong>
+			<span class="td">
+				<select style="width: 100%;">
+					<option>배관명 A1</option>
+				</select>
+			</span>
+		</span>
+		<span class="btn">
+			<button type="button" class="btnType3"><span>검색</span></button>
+		</span>
+	</div>
+
+</section>
 <div class="tab">
 	<ul class="tabList">
 		<li><a href="#">탭1</a></li>
@@ -15,28 +103,13 @@
 		<li><a href="#">탭4</a></li>
 		<li><a href="#">탭5</a></li>
 	</ul>
+	<section class="box">
+		<h3 class="subTitle">모니터링</h3>
+	
+		<table id="mntrGrid"></table>
+		<div id="mntrGridPager" class="pager"></div>
+	</section>
 </div>
-
-<div>
-	<button type="button" class="btnType1"><span>버튼</span></button>
-	<a href="#" class="btnType1">버튼</a>
-	<button type="button" class="btnType2"><span>버튼</span></button>
-	<a href="#" class="btnType2">버튼</a>
-	<button type="button" class="btnType3"><span>버튼</span></button>
-	<a href="#" class="btnType3">버튼</a>
-	<button type="button" class="btnType4"><span>버튼</span></button>
-	<a href="#" class="btnType4">버튼</a>
-	<button type="button" class="btnType5"><span>버튼</span></button>
-	<a href="#" class="btnType5">버튼</a>
-</div>
-<div>
-	<label class="inputChk"><input type="radio"> <span>라디오</span></label>
-	<select name="" id="">
-		<option value="">선택</option>
-		<option value="">옵션</option>
-	</select>
-</div>
-
 <script>
 $(document).ready(function () {
 	$("#mntrGrid").jqGrid({
@@ -80,6 +153,4 @@ $(document).ready(function () {
 });
 </script>
 
-<table id="mntrGrid"></table>
-<div id="mntrGridPager"></div>
 {%- endblock %}
