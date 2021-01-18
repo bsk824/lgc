@@ -1,7 +1,7 @@
 select {
 	position: relative;
 	height: 32px;
-	padding: 0 30px 0 13px;
+	padding: 5px 30px 0 13px;
 	background: #eef2f6 url('../images/icon_select.png') no-repeat right 11px top 50%;
 	color: #41424a;
 	border: 1px solid #eef2f6;
@@ -40,8 +40,8 @@ select {
 	.inputTxt {width: 100%;}
 }
 .inputTxt {
-	height: 28px;
-	padding: 8px 15px;
+	height: 32px;
+	padding: 9px 15px 7px;
 	background: #fff;
 	border: 1px solid #c3c6da;
 	line-height: 1;
@@ -218,6 +218,7 @@ select {
 		align-items: center;
 		.th {
 			padding: 0 12px 0 30px;
+			white-space: nowrap;
 		}
 		.td {
 			flex: 1;
@@ -231,7 +232,7 @@ select {
 		> div {
 			flex: 1;
 		}
-		.inputTxt {width: 100%;}
+		.inputTxt {width: 130px;}
 		.hyphen {
 			flex: none;
 			width: 10px; height: 1px;

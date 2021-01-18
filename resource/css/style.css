@@ -55,6 +55,18 @@ body {
 	background: #EBF0F3;
 	color: #303132;
 }
+body.login {
+	min-width: 100%;
+	height: 100vh;
+	text-align: center;
+	background: #fff;
+}
+body.login:after {
+	content: "";
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
 h1, h2, h3, h4, h5, h6, p, figure, ul, ol, dl, dd, fieldset, pre {
 	margin: 0;
 }
@@ -168,7 +180,7 @@ hr {
 select {
 	position: relative;
 	height: 32px;
-	padding: 0 30px 0 13px;
+	padding: 5px 30px 0 13px;
 	background: #eef2f6 url("../images/icon_select.png") no-repeat right 11px top 50%;
 	color: #41424a;
 	border: 1px solid #eef2f6;
@@ -222,8 +234,8 @@ select:disabled {
 	width: 100%;
 }
 .inputTxt {
-	height: 28px;
-	padding: 8px 15px;
+	height: 32px;
+	padding: 9px 15px 7px;
 	background: #fff;
 	border: 1px solid #c3c6da;
 	line-height: 1;
@@ -433,6 +445,7 @@ select:disabled {
 }
 .filter .cell .th {
 	padding: 0 12px 0 30px;
+	white-space: nowrap;
 }
 .filter .cell .td {
 	flex: 1;
@@ -447,7 +460,7 @@ select:disabled {
 	flex: 1;
 }
 .filter .period .inputTxt {
-	width: 100%;
+	width: 130px;
 }
 .filter .period .hyphen {
 	flex: none;
@@ -555,6 +568,28 @@ select:disabled {
 .container {
 	margin: 84px 0 0 220px;
 	padding: 12px;
+}
+.loginWrap {
+	display: inline-block;
+	vertical-align: middle;
+	text-align: left;
+}
+.loginWrap fieldset {
+	width: 300px;
+}
+.loginWrap .box {
+	position: relative;
+	padding-right: 50px;
+}
+.loginWrap .box .inputTxt {
+	width: 100%;
+}
+.loginWrap .box button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50px;
+	height: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,17 @@
+.loginWrap {
+	display: inline-block;
+	vertical-align: middle;
+	text-align: left;
+	fieldset {
+		width: 300px;
+	}
+	.box {
+		position: relative;
+		padding-right: 50px;
+		.inputTxt {width: 100%;}
+		button {
+			@include pos($p: absolute, $t: 0, $r: 0);
+			width: 50px; height: 100%;
+		}
+	}
+}

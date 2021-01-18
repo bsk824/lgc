@@ -18,17 +18,17 @@ const path = {
 	dest: './resource/',
 	src: './src/',
 }
-gulp.task('html-tpl', () => {
-	const manageEnvironment = (environment) => {
-		environment.addFilter('tabIndent', (str, numOfIndents, firstLine) => {
-			str = str.replace(/^(?=.)/gm, new Array(numOfIndents + 1).join('\t'));
-			if (!firstLine) {
-				str = str.replace(/^\s+/, "");
-			}
-			return str;
-		});
-	};
+const manageEnvironment = (environment) => {
+	environment.addFilter('tabIndent', (str, numOfIndents, firstLine) => {
+		str = str.replace(/^(?=.)/gm, new Array(numOfIndents + 1).join('\t'));
+		if (!firstLine) {
+			str = str.replace(/^\s+/, "");
+		}
+		return str;
+	});
+};
 
+gulp.task('html-tpl', () => {
 	return gulp.src(path.src + 'html/**/*.html')
 		.pipe(nunjucksRender({
 			envOptions: {
