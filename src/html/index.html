@@ -29,6 +29,9 @@
 			<option value="">옵션</option>
 		</select>
 	</div>
+	<div>
+		<button type="button" class="btnType2" onclick="layer.open('layerAlertRel');"><span>알람 발생 기준 레이어 열기</span></button>
+	</div>
 </section>
 <section class="box">
 
@@ -193,4 +196,69 @@ $(document).ready(function () {
 });
 </script>
 
+<div class="layerPopup" id="layerAlertRel">
+	<section class="popWrap" style="width: 560px;">
+		<h3 class="subTitle">알람 발생 기준</h3>
+		<div class="table">
+			<table>
+				<colgroup>
+					<col style="width: 143px;">
+					<col>
+				</colgroup>
+				<tbody>
+					<tr>
+						<th scope="row">장비도입 구분*</th>
+						<td>
+							<select style="width: 100%;">
+								<option value="">2021 YUMIN Leak Sensor</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">계측인자*</th>
+						<td>
+							<label class="inputChk"><input type="radio" name="layerAlertRadio"> <span>누설</span></label>
+							<label class="inputChk"><input type="radio" name="layerAlertRadio"> <span>파손</span></label>
+							<label class="inputChk"><input type="radio" name="layerAlertRadio"> <span>통신장애</span></label>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">알림유형*</th>
+						<td>
+							<label class="inputChk"><input type="checkbox"> <span>누설</span></label>
+							<label class="inputChk"><input type="checkbox"> <span>파손</span></label>
+							<label class="inputChk"><input type="checkbox"> <span>통신장애</span></label>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">알람대상*</th>
+						<td>
+							<label class="inputChk"><input type="checkbox"> <span>관리자</span></label>
+							<label class="inputChk"><input type="checkbox"> <span>배관담당</span></label>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">알람 기본 메세지</th>
+						<td>
+							위치/배관명/센싱타입
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">알람 추가 메세지*</th>
+						<td>
+							<input type="text" class="inputTxt" value="누설이 발생하였습니다.">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="btnWrap">
+			<button type="button" class="btnType2"><span>수정</span></button>
+			<button type="button" class="btnType2"><span>저장</span></button>
+			<button type="button" class="btnType1"><span>삭제</span></button>
+		</div>
+
+		<button type="button" class="btnClose" onclick="layer.close();"><span>레이어닫기</span></button>
+	</section>
+</div>
 {%- endblock %}

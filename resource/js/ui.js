@@ -130,6 +130,37 @@ var tab = {
     }
   }
 };
+var layer = {
+  obj: {},
+  open: function open(id) {
+    var layerWrap = document.querySelector('#' + id);
+    var none = true;
+    layerWrap.classList.add('show');
+
+    for (var key in layer.obj) {
+      if (key == id) none = false;
+    }
+
+    if (none) {
+      layerWrap.addEventListener('click', function () {
+        if (event.target.classList.contains('layerPopup')) layer.close(id);
+      });
+    }
+
+    layer.obj[id] = layerWrap;
+  },
+  close: function close(id) {
+    var target;
+
+    if (id) {
+      target = document.querySelector('#' + id);
+    } else {
+      target = findEl.parent(event.target, 'layerPopup');
+    }
+
+    target.classList.remove('show');
+  }
+};
 window.addEventListener('DOMContentLoaded', function () {
   device.init();
   tab.init();

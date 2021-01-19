@@ -113,6 +113,9 @@ select {
 		&:before {margin: 0;}
 	}
 }
+.btnWrap {
+	text-align: center;
+}
 [class*="btnType"] {
 	display: inline-block;
 	box-sizing: border-box;
@@ -157,7 +160,7 @@ select {
 
 .subTitle {
 	position: relative;
-	margin: 8px 0 12px 17px;
+	margin: 0 0 12px 17px;
 	padding-left: 13px;
 	font-size: 18px;
 	color: #303132;
@@ -174,6 +177,7 @@ select {
 	padding: 20px;
 	background: #fff;
 	border: 1px solid #d9dce8;
+	.subTitle {margin-top: 8px;}
 	~ .box, ~ .tab {margin-top: 12px;}
 }
 .tab {
@@ -232,7 +236,10 @@ select {
 		> div {
 			flex: 1;
 		}
-		.inputTxt {width: 130px;}
+		.inputTxt {
+			min-width: 130px;
+			width: 100%;
+		}
 		.hyphen {
 			flex: none;
 			width: 10px; height: 1px;
@@ -275,6 +282,7 @@ select {
 			vertical-align: middle;
 		}
 		.btnSet {
+			display: inline-block;
 			width: 70px; height: 100%;
 			margin-left: 15px;
 			border: solid #d9dce8;
@@ -328,4 +336,31 @@ select {
 .container {
 	margin: 84px 0 0 220px;
 	padding: 12px;
+}
+
+.layerPopup {
+	display: none;
+	@include pos($p: fixed, $a: 0, $z: 1000);
+	background: rgba(0,0,0,.5);
+	@include align;
+	text-align: center;
+	font-size: 0;
+	&.show {
+		display: block;
+	}
+	.popWrap {
+		position: relative;
+		display: inline-block;
+		padding: 45px 20px 70px;
+		background: #fff;
+		text-align: left;
+		vertical-align: middle;
+		font-size: 14px;
+	}
+	.btnClose {
+		@include pos($p: absolute, $t: 20px, $r: 20px);
+		width: 32px; height: 32px;
+		font-size:0;
+		background: url($path+'images/btn_close.png') no-repeat;
+	}
 }

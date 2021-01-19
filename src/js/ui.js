@@ -114,6 +114,32 @@ const tab = {
 	}
 }
 
+const layer = {
+	obj : {},
+	open : (id) => {
+		let layerWrap = document.querySelector('#'+id);
+		let none = true;
+		layerWrap.classList.add('show');
+		for (let key in layer.obj) {
+			if(key == id) none = false;
+		}
+		if(none) {
+			layerWrap.addEventListener('click', function(){
+				if(event.target.classList.contains('layerPopup')) layer.close(id);
+			});
+		}
+		layer.obj[id] = layerWrap;
+	},
+	close : (id) => {
+		let target;
+		if(id) {
+			target = document.querySelector('#'+id);
+		} else {
+			target = findEl.parent(event.target, 'layerPopup');
+		}
+		target.classList.remove('show');
+	}
+}
 window.addEventListener('DOMContentLoaded', () => {
 	device.init();
 	tab.init();

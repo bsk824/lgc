@@ -2,16 +2,51 @@
 	display: inline-block;
 	vertical-align: middle;
 	text-align: left;
-	fieldset {
-		width: 300px;
+	margin-top: -100px;
+	h1 {
+		text-align: center;
+		span {
+			display: block;
+			margin-top: 5px;
+			font-size: 16px;
+			font-weight: 400;
+			color: #72818f;
+		}
 	}
-	.box {
+	fieldset {
+		width: 460px;
+		margin-top: 55px;
+		padding: 40px;
+		border: 2px solid #ebeff3;
+		border-radius: 6px;
+		box-sizing: border-box;
+		p {
+			margin: 0 0 15px 14px;
+			font: {
+				family: 'Century Gothic';
+				size: 34px;
+				weight: bold;
+			}
+			color: #d6dde2;
+		}
+	}
+	.formWrap {
 		position: relative;
-		padding-right: 50px;
-		.inputTxt {width: 100%;}
+		padding-right: 128px;
+		.inputTxt {
+			width: 100%;
+			&:focus {border: 2px solid #96ccff;}
+			~ .inputTxt {margin-top: 9px;}
+		}
 		button {
 			@include pos($p: absolute, $t: 0, $r: 0);
-			width: 50px; height: 100%;
+			width: 121px; height: 100%;
+			background: #3393ec;
+			color: #fff;
+			font : {
+				size: 20px;
+				weight: 700;
+			}
 		}
 	}
 }
