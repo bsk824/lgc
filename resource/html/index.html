@@ -8,11 +8,12 @@
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="stylesheet" href="../css/jquery-ui.css">
 	<link rel="stylesheet" href="../css/ui.jqgrid.css">
-	<script src="../js/ui.js"></script>
-	<script src="../js/swiper-bundle.min.js"></script>
 	<script src="../js/jquery-1.7.2.min.js"></script>
+	<script src="../js/jquery-ui.min.js"></script>
 	<script src="../js/grid.locale-kr.js"></script>
 	<script src="../js/jquery.jqGrid.min.js"></script>
+	<script src="../js/ui.js"></script>
+	<script src="../js/swiper-bundle.min.js"></script>
 </head>
 
 <body>
@@ -189,6 +190,7 @@
 				</div>
 
 			</section>
+
 			<div class="tab">
 				<ul class="tabList">
 					<li><a href="#">탭1</a></li>
@@ -204,6 +206,34 @@
 					<div id="mntrGridPager" class="pager"></div>
 				</section>
 			</div>
+
+			<section class="box typeColumn">
+				<div class="columnBox">
+					<div class="titleWrap">
+						<h3 class="subTitle">현장사진</h3>
+						<span class="btns">
+							<button type="button" class="btnType5"><span>추가</span></button>
+							<button type="button" class="btnType5"><span>삭제</span></button>
+						</span>
+					</div>
+					<div class="imgBox">
+						<img src="../images/img_sample.png" alt="">
+					</div>
+				</div>
+				<div class="columnBox">
+					<div class="titleWrap">
+						<h3 class="subTitle">설치도면</h3>
+						<span class="btns">
+							<button type="button" class="btnType5"><span>추가</span></button>
+							<button type="button" class="btnType5"><span>삭제</span></button>
+						</span>
+					</div>
+					<div class="imgBox">
+						<img src="../images/img_sample2.png" alt="">
+					</div>
+				</div>
+			</section>
+
 			<script>
 			$(document).ready(function () {
 				$("#mntrGrid").jqGrid({
@@ -259,8 +289,8 @@
 							<tbody>
 								<tr>
 									<th scope="row">장비도입 구분*</th>
-									<td>
-										<select style="width: 100%;">
+									<td class="formOn">
+										<select style="width: 100%;" class="bgNone">
 											<option value="">2021 YUMIN Leak Sensor</option>
 										</select>
 									</td>
@@ -276,9 +306,9 @@
 								<tr>
 									<th scope="row">알림유형*</th>
 									<td>
-										<label class="inputChk"><input type="checkbox"> <span>누설</span></label>
-										<label class="inputChk"><input type="checkbox"> <span>파손</span></label>
-										<label class="inputChk"><input type="checkbox"> <span>통신장애</span></label>
+										<label class="inputChk"><input type="checkbox"> <span>WEB</span></label>
+										<label class="inputChk"><input type="checkbox"> <span>SNS</span></label>
+										<label class="inputChk"><input type="checkbox"> <span>이메일</span></label>
 									</td>
 								</tr>
 								<tr>
@@ -296,12 +326,17 @@
 								</tr>
 								<tr>
 									<th scope="row">알람 추가 메세지*</th>
-									<td>
-										<input type="text" class="inputTxt" value="누설이 발생하였습니다.">
+									<td class="formOn">
+										<input type="text" class="inputTxt" value="누설이 발생하였습니다." style="width: 100%;">
 									</td>
 								</tr>
 							</tbody>
 						</table>
+					</div>
+
+					<h4 class="subTitle2">알람 메시지 미리보기</h4>
+					<div class="messageSample">
+						<p>공용T/B-D구간-#1 배관A 누설이 발생 하였습니다.</p>
 					</div>
 					<div class="btnWrap">
 						<button type="button" class="btnType2"><span>수정</span></button>

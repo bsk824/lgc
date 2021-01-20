@@ -8,7 +8,7 @@ const browserSync = require('browser-sync').create();
 const babel = require('gulp-babel');
 
 const scssOptions = {
-	outputStyle: 'expanded', /* nested, expanded, compact, compressed */
+	outputStyle: 'compact', /* nested, expanded, compact, compressed */
 	indentType: 'tab',
 	indentWidth: 1,
 	souceComments: true
