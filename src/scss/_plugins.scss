@@ -22,10 +22,10 @@
 .ui-jqgrid {
 	.pager {
 		background: none !important;
-		#mntrGridPager_center {
+		[id*="_center"] {
 			> table {float:right;}
 		}
-		#mntrGridPager_right {display: none;}
+		> div > table > tbody > tr > td:last-child {display: none;}
 		.ui-pg-table td {font-weight: 700;}
 		.ui-pg-selbox {
 			height: 30px;
@@ -38,4 +38,4 @@
 	}
 }
 
-#ui-datepicker-div {z-index: 100 !important;}
+#ui-datepicker-div {z-index: 10000 !important;}

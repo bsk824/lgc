@@ -28,7 +28,7 @@ const manageEnvironment = (environment) => {
 	});
 };
 
-gulp.task('html-tpl', () => {
+gulp.task('html', () => {
 	return gulp.src(path.src + 'html/**/*.html')
 		.pipe(nunjucksRender({
 			envOptions: {
@@ -40,7 +40,7 @@ gulp.task('html-tpl', () => {
 		.pipe(gulp.dest(path.dest + 'html'))
 		.pipe(browserSync.reload({ stream: true }));
 });
-gulp.task('scss:compile', () => {
+gulp.task('scss', () => {
 	return gulp
 		.src(path.src + 'scss/**/*.scss')
 		.pipe(sourcemaps.init())
@@ -71,9 +71,9 @@ gulp.task('browserSync', () => {
 	})
 });
 gulp.task('watch', () => {
-	gulp.watch(path.src + '**/*.html', gulp.series('html-tpl'));
-	gulp.watch(path.src + '**/*.scss', gulp.series('scss:compile'));
+	gulp.watch(path.src + '**/*.html', gulp.series('html'));
+	gulp.watch(path.src + '**/*.scss', gulp.series('scss'));
 	gulp.watch(path.src + '**/*.js', gulp.series('js'));
 });
 
-gulp.task('default', gulp.parallel('watch', 'browserSync', 'html-tpl', 'scss:compile'));
+gulp.task('default', gulp.parallel('watch', 'browserSync', 'html', 'scss', 'js'));

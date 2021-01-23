@@ -1,0 +1,239 @@
+{% set pageVar = {title: 'title'} %}
+{% set nav = {active: '2'} %}
+{% extends 'inc/layout.html' %}
+{% block content -%}
+<section class="box">
+
+	<div class="boardHead">
+		<h3 class="subTitle">알람이력조회</h3>
+		<span class="btn">
+			<button type="button" class="btnType5" onclick="layer.open('layerAlertRel');"><span>알람발생기준관리</span></button>
+		</span>
+	</div>
+
+	<div class="filter">
+		<span class="cell">
+			<strong class="th">장비도입구</strong>
+			<span class="td">
+				<select style="width: 100%;">
+					<option>2021 YUMIN Leak Sensor</option>
+				</select>
+			</span>
+		</span>
+		<span class="cell">
+			<strong class="th">조회기간</strong>
+			<span class="td">
+				<div class="period">
+					<div><input type="text" class="inputTxt typeCal" value="2021-03-05"></div>
+					<div class="hyphen">-</div>
+					<div><input type="text" class="inputTxt typeCal" value="2021-03-05"></div>
+				</div>
+			</span>
+		</span>
+		<span class="cell">
+			<strong class="th">배관</strong>
+			<span class="td">
+				<select style="width: 100%;">
+					<option>배관명 A1</option>
+				</select>
+			</span>
+		</span>
+		<span class="btn">
+			<button type="button" class="btnType3"><span>검색</span></button>
+		</span>
+	</div>
+	
+	<table id="mntrGrid"></table>
+	<div id="mntrGridPager" class="pager"></div>
+	<script>
+		$(document).ready(function () {
+			$("#mntrGrid").jqGrid({
+				mtype: "GET",
+				datatype: "local",
+				colNames:['발생일시','시설명','장비명','발생모듈','타입','알람내용','조치일시','조치상태'],
+				colModel: [
+					{ name: 'EQMT_NM', 	 	index: 'eqmtNm',  key: true },
+					{ name: 'FCLT_NM',   	index: 'fcltNm',   },
+					{ name: 'EQMT_STAT',   	index: 'eqmtStat', 	},
+					{ name: 'LEAK_YN',   	index: 'leakYn', 	},
+					{ name: 'LEAK_POS',   	index: 'leakPos', 	},
+					{ name: 'FLG_YN',   	index: 'flgYn', 	},
+					{ name: 'CMM_FAIL_YN',  index: 'cmmFailYn',  },
+					{ name: 'BATR',   		index: 'batr', 	 },
+				],
+				viewrecords: true,
+				height: 'auto',
+				rowNum: 10,
+				rowList:[10,20,30],
+				pager: "#mntrGridPager"
+			});
+			
+			$.ajax({
+				url: "../js/mntrList.json",
+				data: "",
+				success: function(data) {
+					var jsonData = data;
+					var mntrList = jsonData.mntrList;
+					for(var i=0; i<mntrList.length ; i++ ){
+						$('#mntrGrid').jqGrid('addRowData', i, mntrList[i]);
+					}
+					$("#mntrGrid").trigger('reloadGrid');
+				},
+				error: function(){
+					console.log("에러 : ");
+				}
+			});
+		});
+	</script>
+</section>
+
+<!-- 알람 발생 기준 -->
+<div class="layerPopup" id="layerAlertRel">
+	<section class="popWrap" style="width: 560px;">
+		<h3 class="subTitle">알람 발생 기준</h3>
+		<div class="table">
+			<table>
+				<colgroup>
+					<col style="width: 143px;">
+					<col>
+				</colgroup>
+				<tbody>
+					<tr>
+						<th scope="row">장비도입 구분*</th>
+						<td class="formOn">
+							<select style="width: 100%;" class="bgNone">
+								<option value="">2021 YUMIN Leak Sensor</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">계측인자*</th>
+						<td>
+							<label class="inputChk"><input type="radio" name="layerAlertRadio"> <span>누설</span></label>
+							<label class="inputChk"><input type="radio" name="layerAlertRadio"> <span>파손</span></label>
+							<label class="inputChk"><input type="radio" name="layerAlertRadio"> <span>통신장애</span></label>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">알림유형*</th>
+						<td>
+							<label class="inputChk"><input type="checkbox"> <span>WEB</span></label>
+							<label class="inputChk"><input type="checkbox"> <span>SNS</span></label>
+							<label class="inputChk"><input type="checkbox"> <span>이메일</span></label>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">알람대상*</th>
+						<td>
+							<label class="inputChk"><input type="checkbox"> <span>관리자</span></label>
+							<label class="inputChk"><input type="checkbox"> <span>배관담당</span></label>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">알람 기본 메세지</th>
+						<td>
+							위치/배관명/센싱타입
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">알람 추가 메세지*</th>
+						<td class="formOn">
+							<input type="text" class="inputTxt" value="누설이 발생하였습니다." style="width: 100%;">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h4 class="subTitle2">알람 메시지 미리보기</h4>
+		<div class="messageSample">
+			<p>공용T/B-D구간-#1 배관A 누설이 발생 하였습니다.</p>
+		</div>
+		<div class="btnWrap">
+			<button type="button" class="btnType2"><span>수정</span></button>
+			<button type="button" class="btnType2"><span>저장</span></button>
+			<button type="button" class="btnType1"><span>삭제</span></button>
+		</div>
+
+		<button type="button" class="btnClose" onclick="layer.close();"><span>레이어닫기</span></button>
+	</section>
+</div>
+
+<!-- 알람발생 장비 정보 -->
+<div class="layerPopup" id="layerAlertEq">
+	<section class="popWrap" style="width: 760px;">
+		<h3 class="subTitle">알람 발생 기준</h3>
+		<div class="table">
+			<table>
+				<colgroup>
+					<col style="width: 140px;">
+					<col style="width: 200px;">
+					<col style="width: 130px;">
+					<col>
+				</colgroup>
+				<tbody>
+					<tr>
+						<th scope="row">구간</th>
+						<td>공용T/B - D구간 #1</td>
+						<th scope="row">시설명</th>
+						<td>공용T/B - D구간</td>
+					</tr>
+					<tr>
+						<th scope="row">배관명</th>
+						<td>배관명A</td>
+						<th scope="row">장비명</th>
+						<td>공용T/B-D구간-#1-PRS63</td>
+					</tr>
+					<tr>
+						<th scope="row">Slave</th>
+						<td>3</td>
+						<th scope="row">계측값</th>
+						<td>52m 지점 누액 발생</td>
+					</tr>
+					<tr>
+						<th scope="row">최초알람발생시간</th>
+						<td>2020-12-30 112:30:45</td>
+						<th scope="row">조치완료여부</th>
+						<td>
+							<label class="inputChk"><input type="radio" name="layerEqRadio"> <span>완료</span></label>
+							<label class="inputChk"><input type="radio" name="layerEqRadio"> <span>미완료</span></label>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">조치자</th>
+						<td>길라임</td>
+						<th scope="row">조치일시</th>
+						<td class="formOn">
+							<span class="cellInput">
+								<span><input type="text" class="inputTxt typeCal" value="2021-03-05"></span>
+								<span style="width:64px"><input type="text" class="inputTxt" value="13"></span>
+								<span style="width:64px"><input type="text" class="inputTxt" value="45"></span>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">조치내용</th>
+						<td class="formOn" colspan="3">
+							<textarea name="" id="" cols="30" rows="5" style="width: 100%;"></textarea>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="boardHead">
+			<h4 class="subTitle">현장사진</h4>
+			<div class="btn">
+				<button type="button" class="btnType5"><span>추가</span></button>
+				<button type="button" class="btnType5"><span>삭제</span></button>
+			</div>
+		</div>
+		<div class="imgBox">
+			<img src="{{path}}images/img_sample.png" alt="">
+		</div>
+
+		<button type="button" class="btnClose" onclick="layer.close();"><span>레이어닫기</span></button>
+	</section>
+</div>
+
+{%- endblock %}

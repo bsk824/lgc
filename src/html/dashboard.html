@@ -1,0 +1,98 @@
+{% set pageVar = {title: ' - 대시보드'} %}
+{% extends 'inc/layout.html' %}
+{% block content -%}
+<div class="box mapWrap">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13104.82153615065!2d127.64658655947555!3d34.800774346367625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356e755f38e9bcc5%3A0xb58bc28d9a768657!2zKOyjvCnsl5jsp4DtmZTtlZk!5e0!3m2!1sko!2skr!4v1611368782892!5m2!1sko!2skr" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+</div>
+
+<ul class="alertList">
+	<li>
+		<div class="state1">
+			전체장비
+			<span class="val"><strong class="num">250</strong>개</span>
+		</div>
+	</li>
+	<li>
+		<div class="state1">
+			정상장비
+			<span class="val"><strong class="num">87</strong>개</span>
+		</div>
+	</li>
+	<li>
+		<div class="state2">
+			장비이상
+			<span class="val"><strong class="num">32</strong>개</span>
+		</div>
+	</li>
+	<li>
+		<div class="state2">
+			통신이상
+			<span class="val"><strong class="num">7</strong>개</span>
+		</div>
+	</li>
+	<li>
+		<div class="state3">
+			누설감지
+			<span class="val"><strong class="num">2</strong>개</span>
+		</div>
+	</li>
+</ul>
+
+<div class="box dashboardList">
+	<h3 class="subTitle type2">누설 발생 목록</h3>
+	<ul class="list">
+		<li>
+			<div class="area">공용T/B-D구간-#1-PRS63</div>
+			<div class="info">
+				<span class="location">GS정문앞 사거리 <button type="button" class="btnMap">지도보기</button></span>
+				<span class="detail">
+					<span>Slave#6</span>
+					<span>누액 발생</span>
+					<span>20.56m</span>
+				</span>
+			</div>
+			<div class="date">2021-03-05  12:50:25 PM</div>
+		</li>
+		<li>
+			<div class="area">공용T/B-D구간-#1-PRS63</div>
+			<div class="info">
+				<span class="location">GS정문앞 사거리 <button type="button" class="btnMap">지도보기</button></span>
+				<span class="detail">
+					<span>Slave#6</span>
+					<span>누액 발생</span>
+					<span>20.56m</span>
+				</span>
+			</div>
+			<div class="date">2021-03-05  12:50:25 PM</div>
+		</li>
+	</ul>
+</div>
+
+<div class="box dashboardList">
+	<h3 class="subTitle">장비/통신 이상 목록 </h3>
+	<ul class="list">
+		<li>
+			<div class="area">공용T/B-D구간-#1-PRS63</div>
+			<div class="info">
+				<span class="location">GS정문앞 사거리 <button type="button" class="btnMap">지도보기</button></span>
+				<span class="detail">
+					<span>Slave#6</span>
+					<span>센 서파손</span>
+				</span>
+			</div>
+			<div class="date">2021-03-05  12:50:25 PM</div>
+		</li>
+		<li>
+			<div class="area">공용T/B-D구간-#1-PRS63</div>
+			<div class="info">
+				<span class="location">GS정문앞 사거리 <button type="button" class="btnMap">지도보기</button></span>
+				<span class="detail">
+					<span>ALL</span>
+					<span>통신장애</span>
+				</span>
+			</div>
+			<div class="date">2021-03-05  12:50:25 PM</div>
+		</li>
+	</ul>
+</div>
+{%- endblock %}

@@ -1,0 +1,84 @@
+{% set pageVar = {title: 'title'} %}
+{% set nav = {active: '6'} %}
+{% extends 'inc/layout.html' %}
+{% block content -%}
+<section class="box">
+	<h3 class="subTitle">사용자 목록 조회</h3>
+
+	<div class="filter">
+		<span class="cell">
+			<strong class="th">사용자명ID</strong>
+			<span class="td">
+				<input type="text" class="inputTxt typeBg" style="width: 100%;">
+			</span>
+		</span>
+		<span class="cell">
+			<strong class="th">사용자명</strong>
+			<span class="td">
+				<input type="text" class="inputTxt typeBg" style="width: 100%;">
+			</span>
+		</span>
+		<span class="cell">
+			<strong class="th">승인상태</strong>
+			<span class="td">
+				<select style="width: 100%;">
+					<option>ALL</option>
+				</select>
+			</span>
+		</span>
+		<span class="btn">
+			<button type="button" class="btnType3"><span>검색</span></button>
+		</span>
+	</div>
+
+	<div class="boardHead">
+		<div class="btn">
+			<button type="button" class="btnType5"><span>사용자정보관리</span></button>
+		</div>
+	</div>
+	<table id="mntrGrid"></table>
+	<div id="mntrGridPager" class="pager"></div>
+	<script>
+	$(document).ready(function () {
+		$("#mntrGrid").jqGrid({
+			mtype: "GET",
+			datatype: "local",
+			colNames:['사용자ID','사용자명','부서','직책/급','권한','휴대폰','이메일','등록일시','상태'],
+			colModel: [
+				{ name: 'EQMT_NM', 	 	index: 'eqmtNm',  key: true },
+				{ name: 'FCLT_NM',   	index: 'fcltNm',   },
+				{ name: 'EQMT_STAT',   	index: 'eqmtStat', 	},
+				{ name: 'LEAK_YN',   	index: 'leakYn', 	},
+				{ name: 'LEAK_POS',   	index: 'leakPos', 	},
+				{ name: 'FLG_YN',   	index: 'flgYn', 	},
+				{ name: 'CMM_FAIL_YN',  index: 'cmmFailYn',  },
+				{ name: 'BATR',   		index: 'batr', 	 },
+				{ name: 'LAST_UPD_DTM', index: 'lastUpdDtm',  }
+			],
+			viewrecords: true,
+			height: 'auto',
+			rowNum: 10,
+			rowList:[10,20,30],
+			pager: "#mntrGridPager"
+		});
+		
+		$.ajax({
+			url: "../js/mntrList.json",
+			data: "",
+			success: function(data) {
+				   var jsonData = data;
+				   var mntrList = jsonData.mntrList;
+				   for(var i=0; i<mntrList.length ; i++ ){
+					   $('#mntrGrid').jqGrid('addRowData', i, mntrList[i]);
+				}
+				   $("#mntrGrid").trigger('reloadGrid');
+			},
+			error: function(){
+				console.log("에러 : ");
+			}
+		});
+	});
+	</script>
+</section>
+
+{%- endblock %}

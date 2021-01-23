@@ -18,25 +18,25 @@ select {
 		border: 1px solid #d3d4d6;
 	}
 	&.bgNone {
-		background-color: transparent;
+		background-color: #fff;
 		border: 0;
 	}
-}
-.textarea {
-	display: inline-block;
-	width: 100%;
-	textarea {
-		width: 100%;
-		padding: 8px 13px;
-		background: #fff;
-		border: 1px solid #acacac;
-		overflow: auto;
-		resize: none;
-		&::-webkit-input-placeholder {color: #999;}
-		&::placeholder {color: #999; opacity: 1; font-size: 14px;}
-		&:-ms-input-placeholder {color: #999;}
-		&:disabled {background: #e9e9e9;}
+	&.typeLine {
+		background-color: #fff;
+		border: 1px solid #c3c6da;
 	}
+}
+textarea {
+	width: 100%;
+	padding: 8px 13px;
+	background: #fff;
+	border: 1px solid #c3c6da;
+	overflow: auto;
+	resize: none;
+	&::-webkit-input-placeholder {color: #999;}
+	&::placeholder {color: #999; opacity: 1; font-size: 14px;}
+	&:-ms-input-placeholder {color: #999;}
+	&:disabled {background: #e9e9e9;}
 }
 .inputBox {
 	display: inline-block;
@@ -49,6 +49,10 @@ select {
 	background: #fff;
 	border: 1px solid #c3c6da;
 	line-height: 1;
+	&.typeBg {
+		background: #eef2f6;
+		border: 0;
+	}
 	&:focus {
 		color: #000;
 		border-color: #000;
@@ -71,7 +75,26 @@ select {
 		padding-right: 30px;
 		background: #fff url($path+'images/icon_cal.png') no-repeat right 5px top 50%;
 	}
+	&[data-valid="false"] {
+		border: 1px solid #f00;
+		~ .txtValid {
+			display: block;
+			color: #f00;
+		}
+	}
+	&[data-valid="true"] {
+		border: 1px solid #1e70cd;
+		~ .txtValid {
+			display: block;
+			color: #1e70cd;
+		}
+	}
 }
+.txtValid {
+	display: none;
+	font-size: 12px;
+}
+
 .inputChk {
 	display: inline-block;
 	vertical-align: middle;
@@ -165,19 +188,40 @@ select {
 	color: #6a6d7f;
 	font-size: 13px;
 }
+.btnType6 {
+	padding: 9px 8px 8px;
+	background: #e5ecf2;
+	border: 1px solid #bec8d1;
+	border-radius: 2px;
+	color: #6a6d7f;
+	font-size: 13px;
+}
+.btnMap {
+	display: inline-block;
+	width: 18px; height: 22px;
+	margin-left: 4px;
+	background: url($path+'/images/icon_map.png') no-repeat;
+	font-size: 0;
+	vertical-align: middle;
+}
 
 .subTitle {
 	position: relative;
-	margin: 0 0 12px 17px;
+	margin: 30px 0 12px 17px;
 	padding-left: 13px;
 	font-size: 18px;
 	color: #303132;
 	line-height: 1.2;
+	&:first-child {margin-top: 0;}
 	&:after {
 		content: "";
 		@include pos($p: absolute, $t: 8px, $l: 0);
 		width: 4px; height: 4px;
 		background: #313447;
+	}
+	&.type2 {
+		color: #f5167f;
+		&:after {background: #f5167f;}
 	}
 }
 .subTitle2 {
@@ -187,11 +231,14 @@ select {
 	color: #547796;
 	font-weight: 400;
 }
-.titleWrap {
+.boardHead {
 	display: flex;
+	margin: 30px 0 10px;
 	align-items: center;
-	.btns {
-		margin: 0 8px 0 auto;
+	.subTitle {margin: 0 0 5px 15px;}
+	&:first-child {margin-top: 0;}
+	.btn {
+		margin-left: auto;
 		justify-self: flex-end;
 	}
 }
@@ -200,17 +247,29 @@ select {
 	padding: 20px;
 	background: #fff;
 	border: 1px solid #d9dce8;
-	.subTitle {margin-top: 8px;}
+	.subTitle:first-child {margin-top: 8px;}
 	~ .box, ~ .tab {margin-top: 12px;}
 	&.typeColumn {
-		display: flex;
-		flex-wrap: wrap;
+		margin: 0;
 		padding: 20px 10px;
 	}
+}
+.typeColumn {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -10px;
 	.columnBox {
 		width: 50%;
 		box-sizing: border-box;
 		padding: 0 10px;
+	}
+	&.type2 .columnBox {
+		&:first-child {width: 40%;}
+		width: 60%;
+	}
+	&.type3 .columnBox {
+		&:first-child {width: 70%;}
+		width: 30%;
 	}
 }
 .tab {
@@ -219,12 +278,12 @@ select {
 }
 .tabList {
 	display: flex;
-	background: #f6fafb;
-	border: 1px solid #d9dce8;
 	li {
+		width: 20%;
 		position: relative;
-		flex: 1;
-		~ li {border-left: 1px solid #d9dce8;}
+		background: #f6fafb;
+		border: 1px solid #d9dce8;
+		~ li {border-left: 0;}
 		a {
 			position: relative;
 			display: block;
@@ -246,6 +305,18 @@ select {
 }
 
 .table {
+	.alignCenter {text-align: center;}
+	.alignLeft {text-align: left;}
+	thead {
+		th {
+			padding: 11px 10px 12px;
+			background: #d8e7f4;
+			border: 1px solid #afc9dd;
+			border-bottom-color: #7f93a4;
+			color: #547796;
+			font-weight: 400;
+		}
+	}
 	tbody {
 		th {
 			padding: 0 0 0 15px;
@@ -254,19 +325,37 @@ select {
 			border-right-color: #7f93a4;
 			color: #547796;
 			font-weight: 400;
+			text-align: left;
 			+ td {border-left: 1px solid #7f93a4;}
 		}
 		td {
-			padding: 14px 15px;
+			padding: 11px 15px 12px;
 			border: 1px solid #afc9dd;
-			.inputChk {margin-right: 15px;}
-			&.formOn {padding: 7px 6px;}
+			.inputChk {
+				margin-right: 15px;
+				&.nonTxt {margin: 0;}
+			}
+			&.formOn {
+				padding: 6px;
+				.bgNone {padding: 0 10px;}
+			}
+			.cellInput {
+				display: flex;
+				margin: 0 -4px;
+				align-items: center;
+				> span {
+					padding: 0 4px;
+					box-sizing: border-box;
+				}
+				.inputTxt {width: 100%;}
+			}
 		}
 	}
 }
 
 .filter {
 	display: flex;
+	margin: 0 0 15px;
 	padding: 13px 0;
 	border: 1px solid #d9dce8;
 	.cell {
@@ -317,11 +406,14 @@ select {
 	.popWrap {
 		position: relative;
 		display: inline-block;
-		padding: 45px 20px 70px;
+		padding: 65px 20px 70px;
 		background: #fff;
 		text-align: left;
 		vertical-align: middle;
 		font-size: 14px;
+		.subTitle:first-child {
+			margin-top: -15px;
+		}
 	}
 	.btnClose {
 		@include pos($p: absolute, $t: 20px, $r: 20px);
@@ -330,7 +422,6 @@ select {
 		background: url($path+'images/btn_close.png') no-repeat;
 	}
 }
-
 
 .header {
 	@include pos($p: fixed, $t: 0, $r: 0, $l: 0, $z: 100);
@@ -351,10 +442,19 @@ select {
 		color: #72818f;
 		font-size: 16px;
 	}
+	.btnMenu {display: none;}
+}
+
+.menuWrap {
+	@include pos($p: fixed, $t: 85px, $b: 0, $l: 0, $z: 100);
+	width: 220px;
+	padding: 50px 0 50px 20px;
+	background: #fff;
+	box-sizing: border-box;
+	border-right: 1px solid #d9dce8;
 	.util {
-		height: 100%;
-		margin-left: auto;
-		justify-self: flex-end;
+		@include pos($p: fixed, $t: 0, $r: 0, $z: 100);
+		height: 88px;
 		.user {
 			display: inline-block;
 			margin-right: 5px;
@@ -373,15 +473,6 @@ select {
 			vertical-align: middle;
 		}
 	}
-}
-
-.menuWrap {
-	@include pos($p: fixed, $t: 85px, $b: 0, $l: 0, $z: 100);
-	width: 220px;
-	padding: 50px 0 50px 20px;
-	background: #fff;
-	box-sizing: border-box;
-	border-right: 1px solid #d9dce8;
 	.navTitle {
 		margin-left: 13px;
 		padding-left: 20px;

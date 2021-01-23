@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=2.0, minimum-scale=1.0, user-scalable=yes, target-densitydpi=medium-dpi">
+	<title>LG화학 - 사외관로 누설감지 모니터링 시스템title</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/jquery-ui.css">
+	<link rel="stylesheet" href="../css/ui.jqgrid.css">
+	<script src="../js/jquery-1.7.2.min.js"></script>
+	<script src="../js/jquery-ui.min.js"></script>
+	<script src="../js/grid.locale-kr.js"></script>
+	<script src="../js/jquery.jqGrid.min.js"></script>
+	<script src="../js/ui.js"></script>
+</head>
+
+<body>
+	<div id="wrap">
+		<!-- header -->
+		<header class="header">
+			<h1 class="logo"><a href="dashboard.html"><img src="../images/logo.png" alt="LG화학"></a></h1>
+			<p class="desc">사외관로 누설감지 모니터링 시스템</p>
+			<button type="button" class="btnMenu">메뉴</button>
+		</header>
+		<!-- //header -->
+
+		<!-- nav -->
+		<nav class="menuWrap">
+			<div class="util">
+				<span class="user">김미경님</span>
+				<a href="login.html" class="btnType4">로그아웃</a>
+				<a href="#" class="btnSet">설정</a>
+			</div>
+			<h2 class="navTitle">모니터링</h2>
+			<div class="navList">
+				<ul>
+					<li><a href="monitoring1.html">통합모니터링</a></li>
+					<li><a href="monitoring2.html">알람이력조회</a></li>
+					<li><a href="monitoring3.html">센싱정보이력조회</a></li>
+				</ul>
+			</div>
+
+			<h2 class="navTitle">관리</h2>
+			<div class="navList">
+				<ul>
+					<li><a href="management1.html">알람수신인관리</a></li>
+					<li><a href="management2.html">시설장비목록조회</a></li>
+					<li class="active"><a href="management3.html">사용자목록조회</a></li>
+					<li><a href="management4.html">센싱정보이력조회</a></li>
+				</ul>
+			</div>
+		</nav>
+		<!-- //nav -->
+
+		<div class="container">
+			<section class="box">
+				<h3 class="subTitle">사용자 목록 조회</h3>
+
+				<div class="filter">
+					<span class="cell">
+						<strong class="th">사용자명ID</strong>
+						<span class="td">
+							<input type="text" class="inputTxt typeBg" style="width: 100%;">
+						</span>
+					</span>
+					<span class="cell">
+						<strong class="th">사용자명</strong>
+						<span class="td">
+							<input type="text" class="inputTxt typeBg" style="width: 100%;">
+						</span>
+					</span>
+					<span class="cell">
+						<strong class="th">승인상태</strong>
+						<span class="td">
+							<select style="width: 100%;">
+								<option>ALL</option>
+							</select>
+						</span>
+					</span>
+					<span class="btn">
+						<button type="button" class="btnType3"><span>검색</span></button>
+					</span>
+				</div>
+
+				<div class="boardHead">
+					<div class="btn">
+						<button type="button" class="btnType5"><span>사용자정보관리</span></button>
+					</div>
+				</div>
+				<table id="mntrGrid"></table>
+				<div id="mntrGridPager" class="pager"></div>
+				<script>
+				$(document).ready(function () {
+					$("#mntrGrid").jqGrid({
+						mtype: "GET",
+						datatype: "local",
+						colNames:['사용자ID','사용자명','부서','직책/급','권한','휴대폰','이메일','등록일시','상태'],
+						colModel: [
+							{ name: 'EQMT_NM', 	 	index: 'eqmtNm',  key: true },
+							{ name: 'FCLT_NM',   	index: 'fcltNm',   },
+							{ name: 'EQMT_STAT',   	index: 'eqmtStat', 	},
+							{ name: 'LEAK_YN',   	index: 'leakYn', 	},
+							{ name: 'LEAK_POS',   	index: 'leakPos', 	},
+							{ name: 'FLG_YN',   	index: 'flgYn', 	},
+							{ name: 'CMM_FAIL_YN',  index: 'cmmFailYn',  },
+							{ name: 'BATR',   		index: 'batr', 	 },
+							{ name: 'LAST_UPD_DTM', index: 'lastUpdDtm',  }
+						],
+						viewrecords: true,
+						height: 'auto',
+						rowNum: 10,
+						rowList:[10,20,30],
+						pager: "#mntrGridPager"
+					});
+					
+					$.ajax({
+						url: "../js/mntrList.json",
+						data: "",
+						success: function(data) {
+							   var jsonData = data;
+							   var mntrList = jsonData.mntrList;
+							   for(var i=0; i<mntrList.length ; i++ ){
+								   $('#mntrGrid').jqGrid('addRowData', i, mntrList[i]);
+							}
+							   $("#mntrGrid").trigger('reloadGrid');
+						},
+						error: function(){
+							console.log("에러 : ");
+						}
+					});
+				});
+				</script>
+			</section>
+		</div>
+
+	</div>
+</body>
+</html>

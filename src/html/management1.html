@@ -1,0 +1,163 @@
+{% set pageVar = {title: 'title'} %}
+{% set nav = {active: '4'} %}
+{% extends 'inc/layout.html' %}
+{% block content -%}
+<div class="tab">
+	<ul class="tabList">
+		<li class="active"><a href="management1.html">알람수신인</a></li>
+		<li><a href="management1-2.html">수신그룹</a></li>
+	</ul>
+	<section class="box">
+
+		<div class="filter">
+			<span class="cell">
+				<strong class="th">배관</strong>
+				<span class="td">
+					<select style="width: 100%;">
+						<option>ALL</option>
+					</select>
+				</span>
+			</span>
+			<span class="cell">
+				<strong class="th">이름</strong>
+				<span class="td">
+					<input type="text" class="inputTxt typeBg" style="width: 100%;">
+				</span>
+			</span>
+			<span class="btn">
+				<button type="button" class="btnType3"><span>검색</span></button>
+			</span>
+		</div>
+		
+		<div class="typeColumn type3">
+			<div class="columnBox">
+				<div class="boardHead">
+					<div class="btn">
+						<button type="button" class="btnType5"><span>초기화</span></button>
+						<button type="button" class="btnType5"><span>수신인추가</span></button>
+					</div>
+				</div>
+				
+				<div class="table">
+					<table>
+						<colgroup>
+							<col style="width: 100px;">
+							<col>
+							<col style="width: 100px;">
+							<col>
+						</colgroup>
+						<tbody>
+							<tr>
+								<th scope="row">담당배관*</th>
+								<td class="formOn">
+									<select name="" id="" style="width: 100%;" class="typeLine">
+										<option value="">배관명</option>
+									</select>
+								</td>
+								<th scope="row">이름*</th>
+								<td class="formOn">
+									<input type="text" class="inputTxt" style="width: 100%;">
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">이메일</th>
+								<td class="formOn">
+									<input type="text" class="inputTxt" style="width: 100%;">
+								</td>
+								<th scope="row">휴대폰*</th>
+								<td class="formOn">
+									<input type="text" class="inputTxt" style="width: 100%;">
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">부서</th>
+								<td class="formOn">
+									<input type="text" class="inputTxt" style="width: 100%;">
+								</td>
+								<th scope="row">직책/급</th>
+								<td class="formOn">
+									<input type="text" class="inputTxt" style="width: 100%;">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="columnBox">
+				<div class="boardHead">
+					<div class="btn">
+						<button type="button" class="btnType5"><span>수신인추가</span></button>
+					</div>
+				</div>
+				<div class="table">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">수신그룹</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="formOn">
+									<select name="" id="" style="width: 100%;" class="typeLine">
+										<option value="">A공장 품질관리팀</option>
+									</select>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="boardHead">
+			<h3 class="subTitle">알람 수신인 목록</h3>
+			<span class="btn">
+				<button type="button" class="btnType5"><span>삭제</span></button>
+			</span>
+		</div>
+		<table id="mntrGrid"></table>
+		<div id="mntrGridPager" class="pager"></div>
+		<script>
+			$(document).ready(function () {
+				$("#mntrGrid").jqGrid({
+					mtype: "GET",
+					datatype: "local",
+					colNames:['선택','이름','담당배관','부서','직책/급','휴대폰','이메일'],
+					colModel: [
+						{ name: 'EQMT_NM', 	 	index: 'eqmtNm',  key: true },
+						{ name: 'FCLT_NM',   	index: 'fcltNm',   },
+						{ name: 'EQMT_STAT',   	index: 'eqmtStat', 	},
+						{ name: 'LEAK_YN',   	index: 'leakYn', 	},
+						{ name: 'LEAK_POS',   	index: 'leakPos', 	},
+						{ name: 'FLG_YN',   	index: 'flgYn', 	},
+						{ name: 'CMM_FAIL_YN',  index: 'cmmFailYn',  },
+					],
+					viewrecords: true,
+					height: 'auto',
+					rowNum: 10,
+					rowList:[10,20,30],
+					pager: "#mntrGridPager"
+				});
+				
+				$.ajax({
+					url: "../js/mntrList.json",
+					data: "",
+					success: function(data) {
+						var jsonData = data;
+						var mntrList = jsonData.mntrList;
+						for(var i=0; i<mntrList.length ; i++ ){
+							$('#mntrGrid').jqGrid('addRowData', i, mntrList[i]);
+						}
+						$("#mntrGrid").trigger('reloadGrid');
+					},
+					error: function(){
+						console.log("에러 : ");
+					}
+				});
+			});
+		</script>
+	</section>
+</div>
+
+{%- endblock %}

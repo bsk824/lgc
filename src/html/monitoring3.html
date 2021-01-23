@@ -1,0 +1,92 @@
+{% set pageVar = {title: 'title'} %}
+{% set nav = {active: '3'} %}
+{% extends 'inc/layout.html' %}
+{% block content -%}
+<section class="box">
+
+	<h3 class="subTitle">센싱정보 이력조회</h3>
+
+	<div class="filter">
+		<span class="cell">
+			<strong class="th">조회기간</strong>
+			<span class="td">
+				<div class="period">
+					<div><input type="text" class="inputTxt typeCal" value="2021-03-05"></div>
+					<div class="hyphen">-</div>
+					<div><input type="text" class="inputTxt typeCal" value="2021-03-05"></div>
+				</div>
+			</span>
+		</span>
+		<span class="cell">
+			<strong class="th">배관</strong>
+			<span class="td">
+				<select style="width: 100%;">
+					<option>배관명 A1</option>
+				</select>
+			</span>
+		</span>
+		<span class="cell">
+			<strong class="th">장비</strong>
+			<span class="td">
+				<select style="width: 100%;">
+					<option>ALL</option>
+				</select>
+			</span>
+		</span>
+		<span class="cell">
+			<strong class="th">상태</strong>
+			<span class="td">
+				<select style="width: 100%;">
+					<option>ALL</option>
+				</select>
+			</span>
+		</span>
+		<span class="btn">
+			<button type="button" class="btnType3"><span>검색</span></button>
+		</span>
+	</div>
+	
+	<table id="mntrGrid"></table>
+	<div id="mntrGridPager" class="pager"></div>
+	<script>
+		$(document).ready(function () {
+			$("#mntrGrid").jqGrid({
+				mtype: "GET",
+				datatype: "local",
+				colNames:['수신일시','시설명','장비명','Slave','설치위치','누액','계측값','파손'],
+				colModel: [
+					{ name: 'EQMT_NM', 	 	index: 'eqmtNm',  key: true },
+					{ name: 'FCLT_NM',   	index: 'fcltNm',   },
+					{ name: 'EQMT_STAT',   	index: 'eqmtStat', 	},
+					{ name: 'LEAK_YN',   	index: 'leakYn', 	},
+					{ name: 'LEAK_POS',   	index: 'leakPos', 	},
+					{ name: 'FLG_YN',   	index: 'flgYn', 	},
+					{ name: 'CMM_FAIL_YN',  index: 'cmmFailYn',  },
+					{ name: 'BATR',   		index: 'batr', 	 },
+				],
+				viewrecords: true,
+				height: 'auto',
+				rowNum: 10,
+				rowList:[10,20,30],
+				pager: "#mntrGridPager"
+			});
+			
+			$.ajax({
+				url: "../js/mntrList.json",
+				data: "",
+				success: function(data) {
+					var jsonData = data;
+					var mntrList = jsonData.mntrList;
+					for(var i=0; i<mntrList.length ; i++ ){
+						$('#mntrGrid').jqGrid('addRowData', i, mntrList[i]);
+					}
+					$("#mntrGrid").trigger('reloadGrid');
+				},
+				error: function(){
+					console.log("에러 : ");
+				}
+			});
+		});
+	</script>
+</section>
+{%- endblock %}

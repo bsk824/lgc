@@ -1,20 +1,25 @@
 <nav class="menuWrap">
+	<div class="util">
+		<span class="user">김미경님</span>
+		<a href="login.html" class="btnType4">로그아웃</a>
+		<a href="#" class="btnSet">설정</a>
+	</div>
 	<h2 class="navTitle">모니터링</h2>
 	<div class="navList">
 		<ul>
-			<li class="active"><a href="#">통합모니터링</a></li>
-			<li><a href="#">알람이력조회</a></li>
-			<li><a href="#">센싱정보이력조회</a></li>
+			<li{%if nav.active == '1' %} class="active"{% endif %}><a href="monitoring1.html">통합모니터링</a></li>
+			<li{%if nav.active == '2' %} class="active"{% endif %}><a href="monitoring2.html">알람이력조회</a></li>
+			<li{%if nav.active == '3' %} class="active"{% endif %}><a href="monitoring3.html">센싱정보이력조회</a></li>
 		</ul>
 	</div>
 
 	<h2 class="navTitle">관리</h2>
 	<div class="navList">
 		<ul>
-			<li><a href="#">알람수신인관리</a></li>
-			<li><a href="#">시설장비목록조회</a></li>
-			<li><a href="#">사용자목록조회</a></li>
-			<li><a href="#">센싱정보이력조회</a></li>
+			<li{%if nav.active == '4' %} class="active"{% endif %}><a href="management1.html">알람수신인관리</a></li>
+			<li{%if nav.active == '5' %} class="active"{% endif %}><a href="management2.html">시설장비목록조회</a></li>
+			<li{%if nav.active == '6' %} class="active"{% endif %}><a href="management3.html">사용자목록조회</a></li>
+			<li{%if nav.active == '7' %} class="active"{% endif %}><a href="management4.html">센싱정보이력조회</a></li>
 		</ul>
 	</div>
 </nav>
