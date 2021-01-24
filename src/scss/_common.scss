@@ -395,6 +395,7 @@ textarea {
 .table {
 	.alignCenter {text-align: center;}
 	.alignLeft {text-align: left;}
+	font-size: 12px;
 	
 	@media screen and (max-width: 768px) {
 		overflow-x: auto;

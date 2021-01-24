@@ -1,6 +1,7 @@
 .ui-jqgrid {
 	position: relative;
 	border: 0 !important;
+	font-size: 12px;
 }
 
 .ui-jqgrid .ui-jqgrid-view {
