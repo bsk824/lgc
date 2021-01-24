@@ -332,9 +332,26 @@ $(document).ready(function () {
 				<button type="button" class="btnType5"><span>삭제</span></button>
 			</span>
 		</div>
-		<div class="imgBox">
-			<img src="{{path}}images/img_sample2.png" alt="">
+		<div id="pageSlide" class="imgBox slideContainer">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide"><img src="{{path}}images/img_sample2.png" alt=""></div>
+				<div class="swiper-slide"><img src="{{path}}images/img_sample2.png" alt=""></div>
+				<div class="swiper-slide"><img src="{{path}}images/img_sample2.png" alt=""></div>
+			</div>
+			<div class="slideNav">
+				<button type="button" class="btnPrev">이전</button>
+				<button type="button" class="btnNext">다음</button>
+			</div>
 		</div>
+		<script>
+			slider.active('pageSlide');
+			//이미지 추가 시
+			slider.obj.pageSlide.appendSlide('<div class="swiper-slide"><img src="{{path}}images/img_sample.png" alt=""></div>');
+			slider.obj.pageSlide.appendSlide([
+				'<div class="swiper-slide"><img src="{{path}}images/img_sample.png" alt=""></div>',
+				'<div class="swiper-slide"><img src="{{path}}images/img_sample.png" alt=""></div>'
+			]);
+		</script>
 	</div>
 </section>
 

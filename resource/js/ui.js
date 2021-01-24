@@ -171,6 +171,31 @@ var menu = {
     document.body.classList.remove('menuShow');
   }
 };
+var slideOpt = {
+  pageSlide: {
+    speed: 500,
+    loop: true,
+    observer: true,
+    navigation: {
+      prevEl: '#pageSlide .btnPrev',
+      nextEl: '#pageSlide .btnNext'
+    }
+  }
+};
+var slider = {
+  obj: {},
+  active: function active(id) {
+    var sliderObj = '#' + id;
+    var option = slideOpt[id];
+    if (!option.on) option['on'] = {};
+
+    option.on['init'] = function () {
+      slider.obj[id] = this;
+    };
+
+    if (document.querySelector(sliderObj)) new Swiper(sliderObj, option);
+  }
+};
 $.datepicker.setDefaults({
   dateFormat: 'yy-mm-dd',
   prevText: '이전 달',

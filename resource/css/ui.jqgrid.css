@@ -69,7 +69,7 @@
 .ui-jqgrid .ui-jqgrid-htable th div {
     overflow: hidden;
 	position: relative;
-	padding: 12px 10px;
+	padding: 6px;
 }
 
 .ui-th-column,.ui-jqgrid .ui-jqgrid-htable th.ui-th-column {
@@ -183,7 +183,7 @@ tr.ui-search-toolbar select {
     font-weight: normal;
     overflow: hidden;
     white-space: pre;
-    padding: 12px 10px;
+    padding: 6px;
 	border: 1px solid #c5d9ec;
 }
 
@@ -296,7 +296,8 @@ tr.ui-search-toolbar select {
     padding: 0!important;
     position: relative;
     white-space: nowrap;
-    overflow: hidden;
+	overflow: hidden;
+	font-size: 12px;
 }
 
 .ui-jqgrid .ui-pager-control {
@@ -318,9 +319,10 @@ tr.ui-search-toolbar select {
 }
 .ui-jqgrid .ui-pg-button .ui-icon {
 	display: block;
-	width: 32px; height: 30px;
+	width: 24px; height: 22px;
 	margin: 0 0 0 -1px;
 	background: url('../images/icon_pager.png') no-repeat;
+	background-size: auto 44px;
 	border: 1px solid #e0e2ef;
 }
 .ui-jqgrid .ui-pg-button .ui-icon:hover {
@@ -329,22 +331,22 @@ tr.ui-search-toolbar select {
 	background-position: 0 100%;
 	border-color: #8399aa;
 }
-.ui-jqgrid .ui-pg-button .ui-icon-seek-prev {background-position: -32px 0;}
-.ui-jqgrid .ui-pg-button .ui-icon-seek-prev:hover {background-position: -32px 100%;}
-.ui-jqgrid .ui-pg-button .ui-icon-seek-next {background-position: -64px 0;}
-.ui-jqgrid .ui-pg-button .ui-icon-seek-next:hover {background-position: -64px 100%;}
-.ui-jqgrid .ui-pg-button .ui-icon-seek-end {background-position: -96px 0;}
-.ui-jqgrid .ui-pg-button .ui-icon-seek-end:hover {background-position: -96px 100%;}
+.ui-jqgrid .ui-pg-button .ui-icon-seek-prev {background-position: -24px 0;}
+.ui-jqgrid .ui-pg-button .ui-icon-seek-prev:hover {background-position: -24px 100%;}
+.ui-jqgrid .ui-pg-button .ui-icon-seek-next {background-position: -46px 0;}
+.ui-jqgrid .ui-pg-button .ui-icon-seek-next:hover {background-position: -46px 100%;}
+.ui-jqgrid .ui-pg-button .ui-icon-seek-end {background-position: -70px 0;}
+.ui-jqgrid .ui-pg-button .ui-icon-seek-end:hover {background-position: -70px 100%;}
 
 .ui-jqgrid .ui-pg-button:hover {padding: 0;}
 .ui-jqgrid .ui-state-disabled:hover {padding: 0;}
 
 .ui-jqgrid .ui-pg-input {
-	width: 34px; height: 30px;
+	width: 26px; height: 20px;
 	border: 1px solid #8399aa;
 	box-sizing: border-box;
 	text-align: center;
-	vertical-align: middle;
+	vertical-align: 0;
 }
 
 .ui-jqgrid .ui-pg-selbox {
@@ -360,7 +362,7 @@ tr.ui-search-toolbar select {
     font-weight: normal;
     height: 19px;
     margin-top: 3px;
-    margin-right: 4px
+	margin-right: 4px;
 }
 
 .ui-jqgrid .ui-jqgrid-pager .ui-pg-div {

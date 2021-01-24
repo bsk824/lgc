@@ -1,12 +1,49 @@
-.slideContainer {overflow: hidden;}
-.swiper-wrapper {
+.slideContainer {
 	position: relative;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: flex;
-	.swiper-slide {
-		width: 100%;
-		flex-shrink: 0;
+	overflow: hidden;
+	.swiper-wrapper {
+		position: relative;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: flex;
+		.swiper-slide {
+			width: 100%;
+			flex-shrink: 0;
+		}
+	}
+	.slideNav {
+		[class*="btn"] {
+			@include pos($p: absolute, $t: 50%);
+			width: 30px; height: 30px;
+			margin-top: -15px;
+			font-size: 0;
+			
+			@media screen and (max-width: 768px) {
+				width: rem(30); height: rem(30);
+				margin-top: rem(-15);
+			}
+			&:after {
+				content:"";
+				display: block;
+				width: 100%; height: 100%;
+				border: solid #f00;
+				border-width: 0 3px 3px 0;
+			}
+		}
+		.btnNext {
+			right: 30px;
+			@media screen and (max-width: 768px) {
+				right: rem(30);
+			}
+			&:after {transform: rotate(-45deg);}
+		}
+		.btnPrev {
+			left: 30px;
+			@media screen and (max-width: 768px) {
+				left: rem(30);
+			}
+			&:after {transform: rotate(135deg);}
+		}
 	}
 }
 
@@ -28,9 +65,9 @@
 		> div > table > tbody > tr > td:last-child {display: none;}
 		.ui-pg-table td {font-weight: 700;}
 		.ui-pg-selbox {
-			height: 30px;
-			margin-left: 30px;
-			padding: 0 55px 0 20px;
+			height: 22px;
+			margin-left: 20px;
+			padding: 0 45px 0 10px;
 			background: url('../images/icon_select2.png') no-repeat 100% 50%;
 			border: 1px solid #8399aa;
 			border-right: 0;

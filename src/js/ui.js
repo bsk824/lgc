@@ -151,6 +151,32 @@ const menu = {
 		document.body.classList.remove('menuShow');
 	}
 }
+
+const slideOpt = {
+	pageSlide: {
+		speed: 500,
+		loop: true,
+		observer: true,
+		navigation : {
+			prevEl: '#pageSlide .btnPrev',
+			nextEl: '#pageSlide .btnNext',
+		}
+	},
+}
+
+const slider = {
+	obj : {},
+	active : (id) => {
+		let sliderObj = '#'+id;
+		let option = slideOpt[id];
+		if(!option.on) option['on'] = {};
+		option.on['init'] = function(){
+			slider.obj[id] = this;
+		}
+		if(document.querySelector(sliderObj)) new Swiper(sliderObj, option);
+	}
+}
+
 $.datepicker.setDefaults({
 	dateFormat: 'yy-mm-dd',
 	prevText: '이전 달',
