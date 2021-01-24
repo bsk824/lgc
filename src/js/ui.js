@@ -129,6 +129,7 @@ const layer = {
 			});
 		}
 		layer.obj[id] = layerWrap;
+		document.body.classList.add('scrollLock');
 	},
 	close : (id) => {
 		let target;
@@ -138,13 +139,18 @@ const layer = {
 			target = findEl.parent(event.target, 'layerPopup');
 		}
 		target.classList.remove('show');
+		document.body.classList.remove('scrollLock');
 	}
 }
-window.addEventListener('DOMContentLoaded', () => {
-	device.init();
-	tab.init();
-});
 
+const menu = {
+	open : () => {
+		document.body.classList.add('menuShow');
+	},
+	close : () => {
+		document.body.classList.remove('menuShow');
+	}
+}
 $.datepicker.setDefaults({
 	dateFormat: 'yy-mm-dd',
 	prevText: '이전 달',
@@ -157,6 +163,9 @@ $.datepicker.setDefaults({
 	showMonthAfterYear: true,
 	yearSuffix: '년',
 });
-$(function() {
+
+window.addEventListener('DOMContentLoaded', () => {
+	device.init();
+	tab.init();
 	$(".inputTxt.typeCal").datepicker();
 });

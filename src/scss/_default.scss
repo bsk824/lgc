@@ -1,3 +1,12 @@
+html {
+	@media screen and (min-width: 0) {font-size: 55.55%;}
+	@media screen and (min-width: 360px) {font-size: 62.5%;}
+	@media screen and (min-width: 375px) {font-size: 65.104%;}
+	@media screen and (min-width: 412px) {font-size: 71.52%;}
+	@media screen and (min-width: 414px) {font-size: 71.875%;}
+	@media screen and (min-width: 768px) {font-size: 62.5%;}
+	@media screen and (max-width: 768px) {height: 100%;}
+}
 body {
 	min-width: 1280px;
 	-webkit-text-size-adjust: none;
@@ -11,6 +20,25 @@ body {
 		text-align: center;
 		background: url($path+'images/bg_login1.png') no-repeat 100% 0, url($path+'images/bg_login2.png') no-repeat 0 100%;
 		@include align;
+	}
+	@media screen and (max-width: 768px) {
+		font-size: rem(24);
+		min-width: 0;
+		&.login {
+			height: 100%;
+			background-size: rem(560) auto, rem(300) auto;
+		}
+		&.menuShow {
+			overflow: hidden;
+			&:after {
+				content: "";
+				@include pos($p: fixed, $a: 0, $z: 101);
+				background: rgba(0,0,0,.7);
+			}
+		}
+		&.scrollLock {
+			overflow: hidden;
+		}
 	}
 }
 h1,h2,h3,h4,h5,h6,p,figure,ul,ol,dl,dd,fieldset,pre {margin: 0;}

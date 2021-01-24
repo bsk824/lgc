@@ -3,6 +3,10 @@
 	vertical-align: middle;
 	text-align: left;
 	margin-top: -100px;
+	
+	@media screen and (max-width: 768px) {
+		margin: 0;
+	}
 	h1 {
 		text-align: center;
 		span {
@@ -11,6 +15,10 @@
 			font-size: 16px;
 			font-weight: 400;
 			color: #72818f;
+		}
+		@media screen and (max-width: 768px) {
+			img {width:rem(339);}
+			span {font-size: rem(24);}
 		}
 	}
 	fieldset {
@@ -28,6 +36,15 @@
 				weight: bold;
 			}
 			color: #d6dde2;
+		}
+		@media screen and (max-width: 768px) {
+			width: rem(600);
+			margin-top: rem(40);
+			padding: rem(20) rem(40) rem(40);
+			p {
+				font-size: rem(44);
+				margin: 0 0 rem(14) rem(14);
+			}
 		}
 	}
 	.formWrap {
@@ -48,6 +65,13 @@
 				weight: 700;
 			}
 		}
+		@media screen and (max-width: 768px) {
+			padding-right: rem(145);
+			button {
+				width: rem(130);;
+				font-size: rem(28);
+			}
+		}
 	}
 }
 
@@ -56,6 +80,9 @@
 	background: #d8e7f4;
 	border: 1px solid #afc9dd;
 	color: #303132;
+	@media screen and (max-width: 768px) {
+		padding: rem(10) rem(20);
+	}
 }
 .imgBox {
 	text-align: center;
@@ -68,14 +95,24 @@
 .mapWrap {
 	height: 418px;
 	padding: 0;
+	@media screen and (max-width: 768px) {
+		height: rem(520);
+	}
 }
 .alertList {
 	display: flex;
 	flex-wrap: wrap;
 	margin: 12px -6px 0;
+	@media screen and (max-width: 768px) {
+		margin: 12px -2.5px;
+		+ .box {border-top: 0;}
+	}
 	li {
 		flex: 1;
 		padding: 0 6px;
+		@media screen and (max-width: 768px) {
+			padding: 0 2.5px;
+		}
 		> div {
 			height: 100%;
 			padding: 0 0 20px;
@@ -86,6 +123,9 @@
 			font: {
 				size: 16px;
 				weight: 700;
+			}
+			@media screen and (max-width: 768px) {
+				font-size: rem(22);
 			}
 			&:before {
 				content: "";
@@ -113,6 +153,9 @@
 		.num {
 			font-size: 32px;
 			font-weight: 500;
+			@media screen and (max-width: 768px) {
+				font-size: rem(36);
+			}
 		}
 	}
 }
@@ -125,22 +168,43 @@
 			display: flex;
 			align-items: center;
 			font-size: 16px;
+			@media screen and (max-width: 768px) {
+				display: block;
+				padding: rem(28) rem(22);
+				font-size: rem(26);
+			}
 			> div {
 				width: 30%;
 				padding: 15px 20px;
+				@media screen and (max-width: 768px) {
+					width: 100%;
+					padding: 0;
+					~ div {
+						margin-top: rem(8);
+					}
+				}
 			}
 			~ li {border-top: 1px solid #afc9dd;}
 		}
 		.area {
 			width: 40%;
 			font-weight: 500;
+			@media screen and (max-width: 768px) {
+				width: auto;
+			}
 		}
 		.date {
 			text-align: center;
 			color: #828595;
+			@media screen and (max-width: 768px) {
+				text-align: left;
+			}
 		}
 		.location {
 			font-size: 16px;
+			@media screen and (max-width: 768px) {
+				font-size: rem(26);
+			}
 		}
 		.detail {
 			display: block;
@@ -148,6 +212,9 @@
 				margin-right: 15px;
 				font-size: 14px;
 				color: #828595;
+				@media screen and (max-width: 768px) {
+					font-size: rem(26);
+				}
 			}
 		}
 	}

@@ -36,6 +36,36 @@
 			border-right: 0;
 		}
 	}
+	@media screen and (max-width: 768px) {
+		.ui-jqgrid-htable th div {
+			padding: rem(10);
+		}
+		tr.jqgrow td {
+			padding: rem(10);
+		}
+		.ui-pg-button .ui-icon {
+			width: rem(40); height: rem(40);
+			background-size: auto rem(80);
+		}
+		.ui-pg-button .ui-icon-seek-prev {background-position: rem(-44) 0;}
+		.ui-pg-button .ui-icon-seek-prev:hover {background-position: rem(-44) 100%;}
+		.ui-pg-button .ui-icon-seek-next {background-position: rem(-84) 0;}
+		.ui-pg-button .ui-icon-seek-next:hover {background-position: rem(-84) 100%;}
+		.ui-pg-button .ui-icon-seek-end {background-position: rem(-130) 0;}
+		.ui-pg-button .ui-icon-seek-end:hover {background-position: rem(-130) 100%;}
+		.ui-separator {
+			width: rem(10);
+		}
+		.ui-pg-input {
+			width: rem(50); height: rem(40);
+		}
+		.pager .ui-pg-selbox {
+			height: rem(40);
+			margin-left: rem(20);
+			padding: 0 rem(60) 0 rem(20);
+			background-size: auto 100%;
+		}
+	}
 }
 
 #ui-datepicker-div {z-index: 10000 !important;}

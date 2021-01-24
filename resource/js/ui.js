@@ -148,6 +148,7 @@ var layer = {
     }
 
     layer.obj[id] = layerWrap;
+    document.body.classList.add('scrollLock');
   },
   close: function close(id) {
     var target;
@@ -159,12 +160,17 @@ var layer = {
     }
 
     target.classList.remove('show');
+    document.body.classList.remove('scrollLock');
   }
 };
-window.addEventListener('DOMContentLoaded', function () {
-  device.init();
-  tab.init();
-});
+var menu = {
+  open: function open() {
+    document.body.classList.add('menuShow');
+  },
+  close: function close() {
+    document.body.classList.remove('menuShow');
+  }
+};
 $.datepicker.setDefaults({
   dateFormat: 'yy-mm-dd',
   prevText: '이전 달',
@@ -177,7 +183,9 @@ $.datepicker.setDefaults({
   showMonthAfterYear: true,
   yearSuffix: '년'
 });
-$(function () {
+window.addEventListener('DOMContentLoaded', function () {
+  device.init();
+  tab.init();
   $(".inputTxt.typeCal").datepicker();
 });
 //# sourceMappingURL=ui.js.map

@@ -90,3 +90,7 @@
 	word-break: initial;
 	word-wrap: initial;
 }
+
+@function rem($num) {
+	@return $num/2*0.1 + rem;
+}
