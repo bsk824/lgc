@@ -620,13 +620,13 @@ textarea {
 		display: none;
 		top: 0;
 		width: rem(450);
-		padding: rem(170) 0 0;
+		padding: rem(102) 0 0;
 		.menuShow & {
 			display: block;
 			z-index: 102;
 		}
 		.menuList {
-			@include pos($p: absolute, $t: rem(250), $b: 0);
+			@include pos($p: absolute, $t: rem(160), $b: 0);
 			width: 100%;
 			overflow: auto;
 			padding-top: rem(44);
@@ -636,7 +636,7 @@ textarea {
 		display: none;
 		@media screen and (max-width: 768px) {
 			display: block;
-			@include pos($p: absolute, $t: rem(100), $r: rem(32));
+			@include pos($p: absolute, $t: rem(40), $r: rem(32));
 			width: rem(35); height: rem(35);
 			background: url($path+'/images/btn_close2.png') no-repeat;
 			background-size: cover;
@@ -644,9 +644,13 @@ textarea {
 		}
 	}
 	.util {
+		display: flex;
+		align-items: center;
 		@include pos($p: fixed, $t: 0, $r: 0, $z: 100);
 		height: 40px;
-		.btnType4 {font-size: 12px;}
+		.btnType4 {
+			margin-right: 15px;
+		}
 		@media screen and (max-width: 768px) {
 			position: relative;
 			height: auto;
@@ -671,7 +675,6 @@ textarea {
 		.btnSet {
 			display: inline-block;
 			width: 35px; height: 100%;
-			margin-left: 15px;
 			border: solid #d9dce8;
 			border-width: 0 1px;
 			font-size: 0;
@@ -701,7 +704,7 @@ textarea {
 			font-size: rem(32);
 			background: url($path+'images/icon_depth_mo.png') no-repeat 0 50%;
 			background-size: rem(28);
-			~ .navTitle {margin-top: rem(50);}
+			~ .navTitle {margin-top: rem(40);}
 		}
 	}
 	.navList {
