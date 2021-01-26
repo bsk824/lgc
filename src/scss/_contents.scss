@@ -108,7 +108,7 @@
 	flex-wrap: wrap;
 	margin: 12px -6px 0;
 	@media screen and (max-width: 768px) {
-		margin: 12px -2.5px;
+		margin: 12px rem(24);
 		+ .box {border-top: 0;}
 	}
 	li {
@@ -130,12 +130,16 @@
 			}
 			@media screen and (max-width: 768px) {
 				font-size: rem(22);
+				padding: 0 0 rem(20);
 			}
 			&:before {
 				content: "";
 				display: block;
 				height: 3px;
 				margin: 0 0 20px;
+				@media screen and (max-width: 768px) {
+					margin: 0 0 rem(20);
+				}
 			}
 			&.state1 {
 				&:before {background: #313447;}
