@@ -178,9 +178,10 @@ textarea {
 	vertical-align: middle;
 }
 .btnType1, .btnType2, .btnType3 {
-	padding: 6px 12px 4px;
+	padding: 5px 12px;
 	font-size: 14px;
 	border-radius: 2px;
+	line-height: 1;
 	@media screen and (max-width: 768px) {
 		padding: rem(16) rem(48) rem(12);
 		font-size: rem(28);
@@ -202,22 +203,24 @@ textarea {
 	color: #fff;
 }
 .btnType4 {
-	padding: 4px 8px;
+	padding: 5px 8px 4px;
 	background: #a2a4b3;
 	color: #fff;
 	font-size: 12px;
+	line-height: 1;
 	@media screen and (max-width: 768px) {
 		padding: rem(10) rem(16) rem(6);
 		font-size: rem(28);
 	}
 }
 .btnType5 {
-	padding: 6px 8px 4px;
+	padding: 5px 8px;
 	background: #fff;
 	border: 1px solid #bec8d1;
 	border-radius: 2px;
 	color: #6a6d7f;
 	font-size: 12px;
+	line-height: 1;
 	@media screen and (max-width: 768px) {
 		padding: rem(12) rem(16) rem(8);
 		font-size: rem(24);
@@ -477,15 +480,15 @@ textarea {
 		height: 26px;
 	}
 	.inputTxt {
-		min-width: 130px;
 		width: 100%; height: 26px;
+		box-sizing: border-box;
 		@media screen and (max-width: 768px) {
 			min-width: 0;
 		}
 	}
 	.cell {
 		display: flex;
-		flex: 1;
+		flex-grow: 1;
 		align-items: center;
 		@media screen and (max-width: 768px) {
 			padding: 5px 0;
@@ -498,17 +501,15 @@ textarea {
 			}
 		}
 		.td {
-			flex: 1;
-			display: block;
+			flex-grow: 1;
 			width: 100%;
 		}
 	}
 	.period {
 		display: flex;
 		align-items: center;
-		white-space: nowrap;
 		> div {
-			flex: 1;
+			flex-grow: 1;
 		}
 		.hyphen {
 			flex: none;
@@ -522,7 +523,15 @@ textarea {
 			}
 		}
 	}
-	.btn {padding: 0 13px;}
+	.btn {
+		display: flex;
+		width: 60px;
+		padding: 0 13px;
+		@media screen and (max-width: 768px) {
+			display: block;
+			width: auto;
+		}
+	}
 }
 
 .layerPopup {
