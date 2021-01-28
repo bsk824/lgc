@@ -89,28 +89,36 @@ const getUrlParams = () => {
 }
 
 const tab = {
+	obj : {},
 	init: () => {
-		let tabList = document.querySelectorAll('.tabList');
-		[].forEach.call(tabList, _this => {
-			let tabLink = _this.querySelectorAll('a');
-			tab.addEvent(tabLink);
+		let tabs = document.querySelectorAll('.tab');
+		[].forEach.call(tabs, (_this, idx) => {
+			tab.obj['tab'+idx] = {};
+			let tabObj = tab.obj['tab'+idx];
+			tabObj['list'] = _this.querySelector('.tabList');
+			tabObj['menu'] = tabObj['list'].querySelectorAll('a');
+			tabObj['contents'] = findEl.child(_this, 'box');
+			tab.addEvent(tabObj['menu'], tabObj);
 		});
 	},
-	addEvent: (obj) => {
-		[].forEach.call(obj, _this => {
-			_this.addEventListener('click', e => {
-				let btn = e.target;
-				tab.active(obj, btn);
+	addEvent: (menu, tabObj) => {
+		[].forEach.call(menu, (_this, idx) => {
+			_this.addEventListener('click', () => {
+				event.preventDefault();
+				tab.active(tabObj, idx);
 			});
 		});
 	},
-	active: (list, btn) => {
-		if(!btn.parentNode.classList.contains('active')) {
-			[].forEach.call(list, _this => {
-				_this.parentNode.classList.remove('active');
-			});
-			btn.parentNode.classList.add('active');
-		}
+	active: (obj, idx) => {
+		[].forEach.call(obj.menu, _this => {
+			_this.parentNode.classList.remove('active');
+		});
+		obj.menu[idx].parentNode.classList.add('active');
+
+		[].forEach.call(obj.contents, _this => {
+			_this.classList.remove('active');
+		});
+		obj.contents[idx].classList.add('active');
 	}
 }
 

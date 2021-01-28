@@ -351,10 +351,12 @@ textarea {
 }
 .tab {
 	.box {
+		display: none;
 		margin-top: -1px;
 		@media screen and (max-width: 768px) {
 			border-top: 1px solid #d9dce8;
 		}
+		&.active {display: block;}
 	}
 	~ .box {margin-top: 12px;}
 }

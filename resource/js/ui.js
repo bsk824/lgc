@@ -105,29 +105,35 @@ var getUrlParams = function getUrlParams() {
 };
 
 var tab = {
+  obj: {},
   init: function init() {
-    var tabList = document.querySelectorAll('.tabList');
-    [].forEach.call(tabList, function (_this) {
-      var tabLink = _this.querySelectorAll('a');
-
-      tab.addEvent(tabLink);
+    var tabs = document.querySelectorAll('.tab');
+    [].forEach.call(tabs, function (_this, idx) {
+      tab.obj['tab' + idx] = {};
+      var tabObj = tab.obj['tab' + idx];
+      tabObj['list'] = _this.querySelector('.tabList');
+      tabObj['menu'] = tabObj['list'].querySelectorAll('a');
+      tabObj['contents'] = findEl.child(_this, 'box');
+      tab.addEvent(tabObj['menu'], tabObj);
     });
   },
-  addEvent: function addEvent(obj) {
-    [].forEach.call(obj, function (_this) {
-      _this.addEventListener('click', function (e) {
-        var btn = e.target;
-        tab.active(obj, btn);
+  addEvent: function addEvent(menu, tabObj) {
+    [].forEach.call(menu, function (_this, idx) {
+      _this.addEventListener('click', function () {
+        event.preventDefault();
+        tab.active(tabObj, idx);
       });
     });
   },
-  active: function active(list, btn) {
-    if (!btn.parentNode.classList.contains('active')) {
-      [].forEach.call(list, function (_this) {
-        _this.parentNode.classList.remove('active');
-      });
-      btn.parentNode.classList.add('active');
-    }
+  active: function active(obj, idx) {
+    [].forEach.call(obj.menu, function (_this) {
+      _this.parentNode.classList.remove('active');
+    });
+    obj.menu[idx].parentNode.classList.add('active');
+    [].forEach.call(obj.contents, function (_this) {
+      _this.classList.remove('active');
+    });
+    obj.contents[idx].classList.add('active');
   }
 };
 var layer = {

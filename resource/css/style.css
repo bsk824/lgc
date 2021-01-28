@@ -163,8 +163,9 @@ textarea:disabled { background: #e9e9e9; }
 .typeColumn.type2 .columnBox:first-child { width: 40%; }
 .typeColumn.type3 .columnBox { width: 30%; }
 .typeColumn.type3 .columnBox:first-child { width: 70%; }
-.tab .box { margin-top: -1px; }
+.tab .box { display: none; margin-top: -1px; }
 @media screen and (max-width: 768px) { .tab .box { border-top: 1px solid #d9dce8; } }
+.tab .box.active { display: block; }
 .tab ~ .box { margin-top: 12px; }
 .tabList { display: flex; }
 .tabList li { width: 20%; position: relative; background: #f6fafb; border: 1px solid #d9dce8; }
