@@ -140,13 +140,13 @@
 
 			<div class="tab">
 				<ul class="tabList">
-					<li class="active"><a href="monitoring1.html">모니터링 상세</a></li>
-					<li><a href="monitoring1-2.html">시설관리</a></li>
-					<li><a href="monitoring1-3.html">장비관리</a></li>
-					<li><a href="monitoring1-4.html">현장사진/도면</a></li>
-					<li><a href="monitoring1-5.html">제어관리</a></li>
+					<li class="active"><a href="#">모니터링 상세</a></li>
+					<li><a href="#">시설관리</a></li>
+					<li><a href="#">장비관리</a></li>
+					<li><a href="#">현장사진/도면</a></li>
+					<li><a href="#">제어관리</a></li>
 				</ul>
-				<section class="box">
+				<section class="box active">
 				
 					<table id="mntrGrid2"></table>
 					<script>
@@ -186,6 +186,486 @@
 							});
 						});
 					</script>
+				</section>
+				<section class="box">
+					<div class="typeColumn">
+						<div class="columnBox">
+							<div class="boardHead">
+								<h3 class="subTitle">시설정보</h3>
+								<span class="btn">
+									<button type="button" class="btnType5"><span>복사</span></button>
+									<button type="button" class="btnType5"><span>초기화</span></button>
+								</span>
+							</div>
+							<div class="table">
+								<table>
+									<colgroup>
+										<col style="width: 143px;">
+										<col>
+									</colgroup>
+									<tbody>
+										<tr>
+											<th scope="row">장비도입 구분*</th>
+											<td class="formOn">
+												<select style="width: 100%;" class="bgNone">
+													<option value="">2021 YUMIN Leak Sensor</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">시설관리ID*</th>
+											<td>USEM_002</td>
+										</tr>
+										<tr>
+											<th scope="row">구간*</th>
+											<td class="formOn">
+												<input type="text" class="inputTxt" value="B" style="width: 140px;">
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">시설명*</th>
+											<td class="formOn">
+												<input type="text" class="inputTxt" value="공용T/B - D구간 #1" style="width: 100%;">
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">시설위치(위도)*</th>
+											<td class="formOn">
+												<span class="cellInput">
+													<span style="width: 50%;"><input type="text" class="inputTxt" value="123.256594122"></span>
+													<span style="width: 50%;"><input type="text" class="inputTxt" value="532.2645124"></span>
+													<span style="width: 30px;"><button type="button" class="btnMap">지도보기</button></span>
+												</span>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">시설위치</th>
+											<td class="formOn">
+												<input type="text" class="inputTxt" value="GS정문앞 사거리" style="width: 100%;">
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">계측인자*</th>
+											<td>
+												<label class="inputChk"><input type="radio" name="mngRadio"> <span>상시전원</span></label>
+												<label class="inputChk"><input type="radio" name="mngRadio"> <span>태양광배터리</span></label>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">알람 추가 메세지*</th>
+											<td class="formOn">
+												<input type="text" class="inputTxt" value="누설이 발생하였습니다." style="width: 100%;">
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="btnWrap right">
+								<button type="button" class="btnType1"><span>삭제</span></button>
+								<button type="button" class="btnType2"><span>저장</span></button>
+							</div>
+						</div>
+
+						<div class="columnBox">
+							<h3 class="subTitle">설치장비목록</h3>
+							<div class="table">
+								<table class="alignCenter">
+									<colgroup>
+										<col style="width:54px;">
+										<col style="width:20%;">
+										<col>
+										<col style="width:20%;">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col">선택</th>
+											<th scope="col">배관명</th>
+											<th scope="col">장비명</th>
+											<th scope="col">Slave 갯수</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><label class="inputChk nonTxt"><input type="checkbox"><span>선택</span></label></td>
+											<td>배관명 B1</td>
+											<td>공용T/B - D구간 #1_배관명 B1_M1</td>
+											<td>44</td>
+										</tr>
+										<tr>
+											<td><label class="inputChk nonTxt"><input type="checkbox"><span>선택</span></label></td>
+											<td>배관명 B1</td>
+											<td>공용T/B - D구간 #1_배관명 B1_M1</td>
+											<td>44</td>
+										</tr>
+										<tr>
+											<td><label class="inputChk nonTxt"><input type="checkbox"><span>선택</span></label></td>
+											<td>배관명 B1</td>
+											<td>공용T/B - D구간 #1_배관명 B1_M1</td>
+											<td>44</td>
+										</tr>
+										<tr>
+											<td><label class="inputChk nonTxt"><input type="checkbox"><span>선택</span></label></td>
+											<td>배관명 B1</td>
+											<td>공용T/B - D구간 #1_배관명 B1_M1</td>
+											<td>44</td>
+										</tr>
+										<tr>
+											<td><label class="inputChk nonTxt"><input type="checkbox"><span>선택</span></label></td>
+											<td>배관명 B1</td>
+											<td>공용T/B - D구간 #1_배관명 B1_M1</td>
+											<td>44</td>
+										</tr>
+										<tr>
+											<td><label class="inputChk nonTxt"><input type="checkbox"><span>선택</span></label></td>
+											<td>배관명 B1</td>
+											<td>공용T/B - D구간 #1_배관명 B1_M1</td>
+											<td>44</td>
+										</tr>
+										<tr>
+											<td><label class="inputChk nonTxt"><input type="checkbox"><span>선택</span></label></td>
+											<td>배관명 B1</td>
+											<td>공용T/B - D구간 #1_배관명 B1_M1</td>
+											<td>44</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="box">
+					<div class="typeColumn">
+						<div class="columnBox">
+							<div class="boardHead">
+								<h3 class="subTitle">장비정보</h3>
+								<span class="btn">
+									<button type="button" class="btnType5"><span>복사</span></button>
+									<button type="button" class="btnType5"><span>초기화</span></button>
+								</span>
+							</div>
+							<div class="table">
+								<table>
+									<colgroup>
+										<col style="width: 200px;">
+										<col>
+									</colgroup>
+									<tbody>
+										<tr>
+											<th scope="row">장비도입 구분*</th>
+											<td class="formOn">
+												<select style="width: 100%;" class="bgNone">
+													<option value="">2021 YUMIN Leak Sensor</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">시설*</th>
+											<td class="formOn">
+												<select style="width: 100%;" class="bgNone">
+													<option value="">공용 T/B-D 구간 #1</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">설치배관*</th>
+											<td class="formOn">
+												<select style="width: 100%;" class="bgNone">
+													<option value="">배관명1</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">장비관리ID*</th>
+											<td>USCM-00003</td>
+										</tr>
+										<tr>
+											<th scope="row">장비명*</th>
+											<td class="formOn">
+												<span class="cellInput">
+													<span style="width:70%;"><input type="text" class="inputTxt" value="공용 T/B-D 구간 #1_배관명A1 "></span>
+													<span style="width:30%;"><input type="text" class="inputTxt" value="M1"></span>
+												</span>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">센서타입*</th>
+											<td class="formOn">
+												<select style="width: 100%;" class="bgNone">
+													<option value="">유액</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">계측주기(초)*</th>
+											<td class="formOn">
+												<select style="width: 100%;" class="bgNone">
+													<option value="">3600</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">전송주기(초)*</th>
+											<td class="formOn">
+												<select style="width: 100%;" class="bgNone">
+													<option value="">즉시</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">설치일자(YYYY-MM-DD)*</th>
+											<td class="formOn">
+												<input type="text" class="inputTxt typeCal" value="2021-03-05">
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">슬레이브필름길이(m)*</th>
+											<td class="formOn">
+												<input type="text" class="inputTxt" value="10" style="width: 100%;">
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">제조사</th>
+											<td class="formOn">
+												<input type="text" class="inputTxt" value="(주) 유민에쓰티" style="width: 100%;">
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">장비설명</th>
+											<td class="formOn">
+												<input type="text" class="inputTxt" value="SlaveModule 연결형 누액 감지 센서" style="width: 100%;">
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">장비상태</th>
+											<td>
+												<label class="inputChk"><input type="radio" name="mngRadio"> <span>정상</span></label>
+												<label class="inputChk"><input type="radio" name="mngRadio"> <span>점검중</span></label>
+												<label class="inputChk"><input type="radio" name="mngRadio"> <span>사용종료</span></label>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="btnWrap right">
+								<button type="button" class="btnType1"><span>삭제</span></button>
+								<button type="button" class="btnType2"><span>저장</span></button>
+							</div>
+						</div>
+
+						<div class="columnBox">
+							<div class="boardHead">
+								<h3 class="subTitle">Slave Module</h3>
+								<span class="btn">
+									<button type="button" class="btnType5"><span>추가</span></button>
+									<button type="button" class="btnType5"><span>삭제</span></button>
+								</span>
+							</div>
+							<div class="table">
+								<table>
+									<colgroup>
+										<col style="width:54px;">
+										<col style="width:40%;">
+										<col>
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col">선택</th>
+											<th scope="col">Slave No</th>
+											<th scope="col">누액(누수) 기준값</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="alignCenter"><label class="inputChk nonTxt"><input type="checkbox"><span>선택</span></label></td>
+											<td>SlaveModule #1</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="alignCenter"><label class="inputChk nonTxt"><input type="checkbox"><span>선택</span></label></td>
+											<td>SlaveModule #2</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="alignCenter"><label class="inputChk nonTxt"><input type="checkbox"><span>선택</span></label></td>
+											<td>SlaveModule #3</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="alignCenter"><label class="inputChk nonTxt"><input type="checkbox"><span>선택</span></label></td>
+											<td>SlaveModule #4</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="alignCenter"><label class="inputChk nonTxt"><input type="checkbox"><span>선택</span></label></td>
+											<td>SlaveModule #5</td>
+											<td></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="btnWrap right">
+								<button type="button" class="btnType2"><span>저장</span></button>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="box">
+					<div class="typeColumn">
+						<div class="columnBox">
+							<div class="boardHead">
+								<h3 class="subTitle">현장사진</h3>
+								<span class="btn">
+									<button type="button" class="btnType5"><span>추가</span></button>
+									<button type="button" class="btnType5"><span>삭제</span></button>
+								</span>
+							</div>
+							<div class="imgBox">
+								<img src="../images/img_sample.png" alt="">
+							</div>
+						</div>
+						<div class="columnBox">
+							<div class="boardHead">
+								<h3 class="subTitle">설치도면</h3>
+								<span class="btn">
+									<button type="button" class="btnType5"><span>추가</span></button>
+									<button type="button" class="btnType5"><span>삭제</span></button>
+								</span>
+							</div>
+							<div id="pageSlide" class="imgBox slideContainer">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide"><img src="../images/img_sample2.png" alt=""></div>
+									<div class="swiper-slide"><img src="../images/img_sample2.png" alt=""></div>
+									<div class="swiper-slide"><img src="../images/img_sample2.png" alt=""></div>
+								</div>
+								<div class="slideNav">
+									<button type="button" class="btnPrev">이전</button>
+									<button type="button" class="btnNext">다음</button>
+								</div>
+							</div>
+							<script>
+								slider.active('pageSlide');
+								//이미지 추가 시
+								// slider.obj.pageSlide.appendSlide('<div class="swiper-slide"><img src="../images/img_sample.png" alt=""></div>');
+								// slider.obj.pageSlide.appendSlide([
+								// 	'<div class="swiper-slide"><img src="../images/img_sample.png" alt=""></div>',
+								// 	'<div class="swiper-slide"><img src="../images/img_sample.png" alt=""></div>'
+								// ]);
+							</script>
+						</div>
+					</div>
+				</section>
+				<section class="box">
+					<div class="typeColumn type2">
+						<div class="columnBox">
+							
+							<h3 class="subTitle">센서 제어 관리</h3>
+							<div class="table">
+								<table>
+									<colgroup>
+										<col style="width: 110px;">
+										<col>
+									</colgroup>
+									<tbody>
+										<tr>
+											<th scope="row">시설정보</th>
+											<td>공용 T/B-D 구간 #1  PRS63-M1</td>
+										</tr>
+										<tr>
+											<th scope="row">장비정보</th>
+											<td>공용 T/B-D 구간 #1  PRS63-M1</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<h3 class="subTitle">제어 설정</h3>
+							<div class="table">
+								<table>
+									<colgroup>
+										<col style="width: 110px;">
+										<col>
+									</colgroup>
+									<tbody>
+										<tr>
+											<th scope="row">제어유형</th>
+											<td class="formOn">
+												<select style="width: 100%;" class="bgNone">
+													<option value="">계측주기설정</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">제어값</th>
+											<td class="formOn">
+												<select style="width: 100%;" class="bgNone">
+													<option value="">1분</option>
+												</select>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<div class="btnWrap right">
+								<button type="button" class="btnType2"><span>전송</span></button>
+							</div>
+						</div>
+
+						<div class="columnBox">
+
+							<div class="boardHead">
+								<h3 class="subTitle">제어이력</h3>
+								<span class="btn">
+									<button type="button" class="btnType5"><span>삭제</span></button>
+								</span>
+							</div>
+							<div class="table">
+								<table class="alignLeft">
+									<colgroup>
+										<col style="width:180px;">
+										<col>
+										<col style="width:110px;">
+										<col style="width:78px;">
+									</colgroup>
+									<thead class="alignCenter">
+										<tr>
+											<th scope="col">요청일시</th>
+											<th scope="col">제어유형</th>
+											<th scope="col">제어값</th>
+											<th scope="col">결과</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>2020-12-23 12:30:45</td>
+											<td>소프트웨어 restert</td>
+											<td>Slave#1</td>
+											<td class="alignCenter">성공</td>
+										</tr>
+										<tr>
+											<td>2020-12-23 12:30:45</td>
+											<td>하드웨어 restert</td>
+											<td>Slave#5</td>
+											<td class="alignCenter">성공</td>
+										</tr>
+										<tr>
+											<td>2020-12-23 12:30:45</td>
+											<td>계측주기설정</td>
+											<td>30분</td>
+											<td class="alignCenter">성공</td>
+										</tr>
+										<tr>
+											<td>2020-12-23 12:30:45</td>
+											<td>계측주기설정</td>
+											<td>1시간</td>
+											<td class="alignCenter">성공</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+						</div>
+					</div>
 				</section>
 			</div>
 		</div>

@@ -165,6 +165,7 @@ const slideOpt = {
 		speed: 500,
 		loop: true,
 		observer: true,
+		observeParents: true,
 		navigation : {
 			prevEl: '#pageSlide .btnPrev',
 			nextEl: '#pageSlide .btnNext',
