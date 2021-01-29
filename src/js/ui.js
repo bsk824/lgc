@@ -104,7 +104,7 @@ const tab = {
 	addEvent: (menu, tabObj) => {
 		[].forEach.call(menu, (_this, idx) => {
 			_this.addEventListener('click', () => {
-				event.preventDefault();
+				if(_this.getAttribute('href') === '#') event.preventDefault();
 				tab.active(tabObj, idx);
 			});
 		});

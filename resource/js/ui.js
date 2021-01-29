@@ -120,7 +120,7 @@ var tab = {
   addEvent: function addEvent(menu, tabObj) {
     [].forEach.call(menu, function (_this, idx) {
       _this.addEventListener('click', function () {
-        event.preventDefault();
+        if (_this.getAttribute('href') === '#') event.preventDefault();
         tab.active(tabObj, idx);
       });
     });
