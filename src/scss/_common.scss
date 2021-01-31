@@ -1,11 +1,11 @@
 select {
 	position: relative;
-	height: 26px;
+	height: 24px;
 	padding: 0 30px 0 13px;
 	background: #fff url('../images/icon_select.png') no-repeat right 11px top 50%;
 	color: #41424a;
 	border: 1px solid #d0d2dd;
-	font-size: 14px;
+	font-size: 12px;
 	text-align: left;
 	vertical-align: top;
 	-webkit-appearance:none;
@@ -58,7 +58,7 @@ textarea {
 	.inputTxt {width: 100%;}
 }
 .inputTxt {
-	height: 26px;
+	height: 24px;
 	padding: 0 15px;
 	background: #fff;
 	border: 1px solid #c3c6da;
@@ -88,6 +88,7 @@ textarea {
 	&.typeCal {
 		padding-right: 30px;
 		background: #fff url($path+'images/icon_cal.png') no-repeat right 5px top 50%;
+		background-size: 12px;
 		@media screen and (max-width: 768px) {
 			padding-right: 20px;
 			background-size: 12px;
@@ -227,7 +228,7 @@ textarea {
 	}
 }
 .btnType6 {
-	padding: 6px 8px 5px;
+	padding: 5px 8px 4px;
 	background: #e5ecf2;
 	border: 1px solid #bec8d1;
 	border-radius: 2px;
@@ -295,7 +296,7 @@ textarea {
 }
 .boardHead {
 	display: flex;
-	margin: 30px 0 10px;
+	margin: 15px 0 10px;
 	align-items: center;
 	.subTitle {margin: 0 0 5px 15px;}
 	&:first-child {margin-top: 0;}
@@ -416,7 +417,7 @@ textarea {
 	}
 	thead {
 		th {
-			padding: 6px 10px;
+			padding: 8px 10px;
 			background: #d8e7f4;
 			border: 1px solid #afc9dd;
 			border-bottom-color: #7f93a4;
@@ -442,7 +443,7 @@ textarea {
 			}
 		}
 		td {
-			padding: 6px 15px;
+			padding: 8px 15px;
 			border: 1px solid #afc9dd;
 			@media screen and (max-width: 768px) {
 				padding: rem(10);
@@ -479,7 +480,6 @@ textarea {
 	border: 1px solid #d9dce8;
 	@media screen and (max-width: 768px) {
 		display: block;
-		text-align: center;
 		padding: 5px 10px;
 	}
 	select {
@@ -496,7 +496,6 @@ textarea {
 	.cell {
 		display: flex;
 		flex-grow: 1;
-		align-items: center;
 		@media screen and (max-width: 768px) {
 			padding: 5px 0;
 		}
@@ -540,6 +539,7 @@ textarea {
 		@media screen and (max-width: 768px) {
 			display: block;
 			width: auto;
+			text-align: center;
 		}
 	}
 }
@@ -557,30 +557,32 @@ textarea {
 	.popWrap {
 		position: relative;
 		display: inline-block;
-		padding: 65px 20px 70px;
+		padding: 50px 20px 35px;
 		background: #fff;
 		text-align: left;
 		vertical-align: middle;
 		font-size: 14px;
-		.subTitle:first-child {
-			margin-top: -15px;
-		}
+		> .subTitle:first-child {margin-top: -20px;}
 		@media screen and (max-width: 768px) {
 			width: auto !important;
 			padding: rem(80) rem(20) rem(20);
 			@include pos($p: fixed, $a: 0, $z: 1000);
 			overflow: auto;
 		}
+		.imgBox {
+			max-width: 300px;
+			margin: 0 auto;
+		}
 	}
 	.btnClose {
 		@include pos($p: absolute, $t: 20px, $r: 20px);
-		width: 32px; height: 32px;
-		font-size:0;
+		width: 24px; height: 24px;
+		font-size :0;
 		background: url($path+'images/btn_close.png') no-repeat;
+		background-size: cover;
 		@media screen and (max-width: 768px) {
 			top: rem(20); right: rem(20);
 			width: rem(50); height: rem(50);
-			background-size: cover;
 		}
 	}
 }

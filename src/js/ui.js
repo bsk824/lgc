@@ -131,11 +131,6 @@ const layer = {
 		for (let key in layer.obj) {
 			if(key == id) none = false;
 		}
-		if(none) {
-			layerWrap.addEventListener('click', function(){
-				if(event.target.classList.contains('layerPopup')) layer.close(id);
-			});
-		}
 		layer.obj[id] = layerWrap;
 		document.body.classList.add('scrollLock');
 	},
